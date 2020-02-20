@@ -58,6 +58,6 @@ class ProductTest < ActiveSupport::TestCase
     product = new_product("my_image.jpg")
     product.title = "Short"
     assert product.invalid?
-    assert_equal ["10 is the minimum required characters"], product.errors[:title]
+    assert_equal ["must be a minimum of 10 characters"], product.errors[:title]
   end
 end  
