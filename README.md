@@ -1,24 +1,17 @@
-# README
+# Depot
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple repo for the Depot app in Support Zoom
 
-Things you may want to cover:
+## Download and install
 
-* Ruby version
+1. Clone the repo to your machine using `$dev clone https://github.com/adriancorcoran/support-zoom-depot.git`
+1. Run `$dev up` to install dependencies
+1. Run `$dev server` to start the server
 
-* System dependencies
+## Available Commands
 
-* Configuration
+Most commands are the rails defaults.
 
-* Database creation
+### `$ bin/rails test`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run the test suite
