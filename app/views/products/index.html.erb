@@ -1,11 +1,18 @@
-<% content_for :main_heading do %>
-  Products
-<% end %>
+<%= render partial: "shared/page_title", locals: { title: "Products" } %>
+<%= render partial: "shared/product", collection: @products %>
 
+<%
+=begin
+%>
 
 <% if notice %>
   <aside id="notice"><%= notice %></aside>
 <% end %>
+
+
+<%
+=end
+%>
 
 <table>
   <%# <thead>

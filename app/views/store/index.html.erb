@@ -12,8 +12,5 @@
 %>
 
 <%# store %>
-<% content_for :main_heading do %>
-  My Catalogue
-<% end %>
-
+<%= render partial: "shared/page_title", locals: { title: "The Catalogue" } %>
 <%= render partial: "shared/product", collection: @products %>

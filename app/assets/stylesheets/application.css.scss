@@ -48,3 +48,15 @@ $color-teal: #47c1bf;
     background-color: inherit;
   }
 }
+
+// product cards
+
+.product-card {
+  * {
+    text-align: center;
+  }
+
+  .product-card__description {
+    font-style: italic;
+  }
+}
