@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+// variables and mixins
+
+// colors
+$color-white: #fff;
+$color-teal: #47c1bf;
+
+// top bar
+
+.Polaris-TopBar__LogoLink {
+  text-decoration: none;
+  width: 200px;
+
+  .Polaris-TopBar__Logo {
+    font-size: 1.4em;
+    color: $color-white;
+    font-weight: bold;
+    font-family: helvetica;
+
+    span {
+      color: $color-teal;
+    }
+  }
+}
+
+// navigation
+
+.Polaris-Navigation__Text {
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    background-color: inherit;
+  }
+}

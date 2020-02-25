@@ -1,12 +1,19 @@
-<% content_for :main_heading do %>
-  My Catalogue
-<% end %>
+<%
+=begin
+%>
 
 <% if notice %>
   <aside id="notice"><%= notice %></aside>
 <% end %>
 
-<%# layout %>
-<div class="Polaris-Layout">
-  <%= render partial: "shared/product", collection: @products %>
-</div>
+
+<%
+=end
+%>
+
+<%# store %>
+<% content_for :main_heading do %>
+  My Catalogue
+<% end %>
+
+<%= render partial: "shared/product", collection: @products %>
