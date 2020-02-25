@@ -1,19 +1,5 @@
 <%# polaris button %>
 
-<%
-=begin
-%>
-
-# using local variables: optional
-- text
-- link
-- style_class
-- method
-
-<%
-=end
-%>
-
 <div class="Polaris-ButtonGroup__Item">
   <%# check passed variables %>
   <% use_method = local_assigns[:method] || :get %>
@@ -23,15 +9,23 @@
   <%# disabled? %>
   <% 
     if local_assigns[:active_button] && local_assigns[:active_button] === false 
-      use_disabled = false
+      enabled = false
     else
-      use_disabled = true
+      enabled = true
     end
   %>
 
-  <% if use_disabled %>
-    <%= link_to local_assigns[:link], method: use_method do %>
-      <button type="button" class="Polaris-Button<%= use_style_class %>"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text"><%= local_assigns[:text] %></span></span></button>
+  <%# enabled button %>
+  <% if enabled %>
+    <%# delete button? %>
+    <% if use_method == :delete %>
+      <%= link_to local_assigns[:link], data: {method: 'delete', confirm: 'Are you sure?'} do %>
+        <button type="button" class="Polaris-Button<%= use_style_class %>"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text"><%= local_assigns[:text] %></span></span></button>
+      <% end %>
+    <% else %>
+      <%= link_to local_assigns[:link], method: use_method do %>
+        <button type="button" class="Polaris-Button<%= use_style_class %>"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text"><%= local_assigns[:text] %></span></span></button>
+      <% end %>
     <% end %>
   <% else %>
     <button type="button" class="Polaris-Button<%= use_style_class %>"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text"><%= local_assigns[:text] %></span></span></button>

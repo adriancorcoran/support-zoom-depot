@@ -59,4 +59,16 @@ $color-teal: #47c1bf;
   .product-card__description {
     font-style: italic;
   }
+
+  .Polaris-ButtonGroup__Item {
+    a {
+      padding-left: 0.4em;
+      padding-right: 0.4em;
+      text-decoration: none;
+
+      &:hover {
+        background-color: inherit;
+      }
+    }
+  }
 }
