@@ -9,19 +9,21 @@
 %>
 
 <%# display card %>
-<div class="product-card Polaris-Layout__Section Polaris-Layout__Section--oneThird">
-  <div class="Polaris-Card">
-    <div class="Polaris-Card__Section">
-      <div class="product-card__image">
-        <%= image_tag(product.image_url) %>
-        <p>&nbsp;</p>
-        <p class="product-card__price"><%= number_to_currency(product.price, unit: "€") %></p>
-        <p>&nbsp;</p>
-        <h2 class="Polaris-Heading"><%= product.title %></h2>
+<% cache @product do %>
+  <div class="product-card Polaris-Layout__Section Polaris-Layout__Section--oneThird">
+    <div class="Polaris-Card">
+      <div class="Polaris-Card__Section">
+        <div class="product-card__image">
+          <%= image_tag(product.image_url) %>
+          <p>&nbsp;</p>
+          <p class="product-card__price"><%= number_to_currency(product.price, unit: "€") %></p>
+          <p>&nbsp;</p>
+          <h2 class="Polaris-Heading"><%= product.title %></h2>
+        </div>
+      </div>
+      <div class="Polaris-Card__Section">
+        <p class="product-card__description Polaris-TextStyle--variationSubdued"><%= formatted_description(product.description) %></p>
       </div>
     </div>
-    <div class="Polaris-Card__Section">
-      <p class="product-card__description Polaris-TextStyle--variationSubdued"><%= formatted_description(product.description) %></p>
-    </div>
   </div>
-</div>
+<% end %>
