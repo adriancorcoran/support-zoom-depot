@@ -1,0 +1,14 @@
+<% # render the flash message %>
+
+<div>
+  <div class="Polaris-Banner__Heading">
+    <% if title %>
+      <p class="Polaris-Heading"><%= title %></p>
+    <% end %>
+    <% if message %>
+      <div class="Polaris-Banner__Content">
+        <p><%= message %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

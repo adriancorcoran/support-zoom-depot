@@ -1,0 +1,6 @@
+<%# store %>
+<%= render partial: "shared/page_title", locals: { title: "The Catalogue" } %>
+
+<% cache @products do %>
+  <%= render partial: "shared/product", collection: @products %>
+<% end %>

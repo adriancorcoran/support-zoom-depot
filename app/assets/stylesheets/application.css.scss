@@ -1,0 +1,74 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// variables and mixins
+
+// colors
+$color-white: #fff;
+$color-teal: #47c1bf;
+
+// top bar
+
+.Polaris-TopBar__LogoLink {
+  text-decoration: none;
+  width: 200px;
+
+  .Polaris-TopBar__Logo {
+    font-size: 1.4em;
+    color: $color-white;
+    font-weight: bold;
+    font-family: helvetica;
+
+    span {
+      color: $color-teal;
+    }
+  }
+}
+
+// navigation
+
+.Polaris-Navigation__Text {
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    background-color: inherit;
+  }
+}
+
+// product cards
+
+.product-card {
+  * {
+    text-align: center;
+  }
+
+  .product-card__description {
+    font-style: italic;
+  }
+
+  .Polaris-ButtonGroup__Item {
+    a {
+      padding-left: 0.4em;
+      padding-right: 0.4em;
+      text-decoration: none;
+
+      &:hover {
+        background-color: inherit;
+      }
+    }
+  }
+}

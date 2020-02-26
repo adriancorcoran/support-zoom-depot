@@ -1,0 +1,22 @@
+<%# header %>
+
+<div class="Polaris-Page-Header">
+  <div class="Polaris-Page-Header__MainContent">
+
+    <%# content %>
+    <div class="Polaris-Page-Header__TitleActionMenuWrapper">
+      <div>
+        <div class="Polaris-Header-Title__TitleAndSubtitleWrapper">
+          <div class="Polaris-Header-Title">
+            <h1 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge"><%= yield :main_heading %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%# placeholder to take in action buttons depending on page %>
+    <%= yield :main_heading_action_button %></h1>    
+
+  </div>
+</div>
+

@@ -6,12 +6,65 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://unpkg.com/@shopify/polaris@4.13.1/styles.min.css' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <main class='<%= controller.controller_name %>'>
-      <%= yield %>
-    </main>
+
+    <%# main container %>
+    <div style="--top-bar-background:#230051; --top-bar-color:rgb(255, 255, 255); --top-bar-background-lighter:#9C6ADE;">
+    <%# main frame %>
+      <div class="Polaris-Frame Polaris-Frame--hasNav Polaris-Frame--hasTopBar">
+        
+        <%# top bar %>
+        <div class="Polaris-Frame__TopBar" id="AppFrameTopBar">
+          <%= render "layouts/top_bar" %>
+        </div>
+        <%# top bar %>
+
+        <%# navigation %>
+        <div>
+          <div class="Polaris-Frame__Navigation" id="AppFrameNav">
+            <%= render "layouts/navigation" %>
+          </div>
+        </div>
+        <%# navigation %>
+
+        <%# main content %>
+        <main class="Polaris-Frame__Main" id="AppFrameMain">
+          <div class="Polaris-Frame__Content">
+            <div class="Polaris-Page">
+
+              <%# header %>
+              <%= render "layouts/header" %>
+
+              <%# layout  %>
+              <div class="Polaris-Page__Content">
+
+                <%# what kind of controller is this? %>
+                <div class="Polaris-Layout <%= controller.controller_name %>">
+                    <%= yield %>                          
+                </div>
+
+                <%# footer %>
+                  <%= render "layouts/footer" %>
+                <%# footer %>
+
+              </div>
+              <%# layout  %>
+
+            </div>
+          </div>
+        </main>
+        <%# main content %>
+
+
+      </div>
+      <%# main frame %>
+
+    </div>
+    <%# main container %>
+
   </body>
 </html>
