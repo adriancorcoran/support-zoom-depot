@@ -2,11 +2,10 @@
   <%= render "shared/button", text: "New Product", link: new_product_path, style_class: 'Polaris-Button--primary' %>
 <% end %>
 
-<%= render partial: "shared/page_title", locals: { title: "Products" } %>
+<%= render 'shared/page_title', title: 'Products' %>
 
 <% cache @products do %>
   <%= render partial: "shared/product", collection: @products, locals: { manage: true } %>
 <% end %>
-
 
 
