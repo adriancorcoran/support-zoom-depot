@@ -26,6 +26,10 @@ $color-teal: #47c1bf;
   text-decoration: none;
   width: 200px;
 
+  &:hover {
+    background-color: inherit;
+  }
+
   .Polaris-TopBar__Logo {
     font-size: 1.4em;
     color: $color-white;
@@ -59,16 +63,28 @@ $color-teal: #47c1bf;
   .product-card__description {
     font-style: italic;
   }
+}
 
-  .Polaris-ButtonGroup__Item {
-    a {
-      padding-left: 0.4em;
-      padding-right: 0.4em;
-      text-decoration: none;
+// product detail
 
-      &:hover {
-        background-color: inherit;
-      }
+.product-detail {
+  .Polaris-CalloutCard__Image {
+    width: 20rem;
+    padding-left: 10rem;
+    margin-right: 10rem;
+  }
+}
+
+// buttons
+
+.Polaris-ButtonGroup__Item {
+  a {
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    text-decoration: none;
+
+    &:hover {
+      background-color: inherit;
     }
   }
 }

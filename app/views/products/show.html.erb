@@ -1,24 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% content_for :main_heading_action_button do %>
+  <%= render "shared/button", text: "Back", link: products_path, style_class: 'Polaris-Button--primary' %>
+<% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+<%= render 'shared/page_title', title: @product.title %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= render "shared/product_detail", product: @product, manage: true %>

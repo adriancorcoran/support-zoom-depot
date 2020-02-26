@@ -1,0 +1,29 @@
+<%# product detail %>
+
+<div class="product-detail Polaris-Layout__Section">
+  <div class="Polaris-Card">
+    <div class="Polaris-CalloutCard__Container">
+      <div class="Polaris-Card__Section">
+        <div class="Polaris-CalloutCard">
+          <div class="Polaris-CalloutCard__Content">
+            <div class="Polaris-CalloutCard__Title">
+              <h2 class="Polaris-Heading"><%= number_to_currency(product.price, unit: "€") %></h2>
+            </div>
+            <div class="Polaris-TextContainer">
+              <%= raw(@product.description) %>
+            </div>
+
+            <div class="Polaris-CalloutCard__Buttons">
+              <%# are we showing the editing links? %>
+              <% if local_assigns[:manage] %>
+                <%= render "shared/product_manage", product: @product %>
+              <% end %>      
+            </div>
+
+          </div>
+          <%= image_tag(product.image_url, class: "Polaris-CalloutCard__Image") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
