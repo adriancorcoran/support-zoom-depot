@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% content_for :main_heading_action_button do %>
+  <%= render "shared/button", text: "Back", link: products_path, style_class: 'Polaris-Button--primary' %>
+<% end %>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<%= render 'shared/page_title', title: "Your Cart" %>
+<%= render 'table', title: "Your Cart" %>

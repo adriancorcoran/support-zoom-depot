@@ -10,6 +10,8 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @total_num_items = total_num_items
+    @total_cost_items = total_cost_items
   end
 
   # GET /carts/new
@@ -59,6 +61,22 @@ class CartsController < ApplicationController
       format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # get total number of items in the cart or 0
+  def total_num_items
+    if @cart.line_items
+      return @cart.line_items.count
+    end
+    0
+  end
+  
+  # get total cost of items in the cart or 0
+  def total_cost_items
+    if @cart.line_items
+      return @cart.line_items.reduce(0) { |sum, item| sum + item.product.price }     
+    end
+    0
   end
 
   private
