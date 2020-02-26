@@ -19,6 +19,15 @@
 // colors
 $color-white: #fff;
 $color-teal: #47c1bf;
+$color-indigo: #5c6ac4;
+$color-red-dark: #bf0711;
+
+$color-grey-lighter: #fafafa;
+$color-grey-light: #ddd;
+
+// variables
+
+$form-padding: 0.5em;
 
 // top bar
 
@@ -85,6 +94,50 @@ $color-teal: #47c1bf;
 
     &:hover {
       background-color: inherit;
+    }
+  }
+}
+
+// forms
+
+.custom-form {
+  label {
+    margin-bottom: $form-padding;
+  }
+
+  .field {
+    margin-bottom: $form-padding;
+  }
+
+  input,
+  textarea {
+    font-size: 1em;
+    padding: $form-padding;
+    background: $color-grey-lighter;
+    border: 1px solid $color-grey-light;
+  }
+
+  input[type="submit"] {
+    background: $color-indigo;
+    color: $color-white;
+    border: none;
+    margin-top: $form-padding;
+  }
+
+  .field_with_errors {
+    background-color: $color-red-dark;
+    padding: $form-padding;
+
+    label {
+      color: $color-white;
+    }
+  }
+
+  #error_explanation {
+    border-color: $color-red-dark;
+
+    h2 {
+      background-color: $color-red-dark;
     }
   }
 }

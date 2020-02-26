@@ -1,8 +1,7 @@
-<% content_for :main_heading do %>
-  Editing Product
+<% content_for :main_heading_action_button do %>
+  <%= render "shared/button", text: "Back", link: products_path, style_class: 'Polaris-Button--primary' %>
 <% end %>
 
-<%= render 'form', product: @product %>
+<%= render 'shared/page_title', title: "Editing Product" %>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<%= render "shared/product_form", product: @product %>
