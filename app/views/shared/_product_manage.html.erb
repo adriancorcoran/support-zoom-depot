@@ -1,9 +1,7 @@
 <%# product manage buttons %>
 
-<div class="Polaris-Card__Section">
-  <div class="Polaris-ButtonGroup">
-    <%= render "shared/button", text: "Show", link: product, style_class: 'Polaris-Button' %>
-    <%= render "shared/button", text: "Edit", link: edit_product_path(product), style_class: 'Polaris-Button' %>
-    <%= render "shared/button", text: "Delete", link: product, style_class: 'Polaris-Button--destructive', method: :delete %>
-  </div>
+<div class="Polaris-ButtonGroup">
+  <%= render "shared/button", text: "Show", link: product, style_class: 'Polaris-Button' %>
+  <%= render "shared/button", text: "Edit", link: edit_product_path(product), style_class: 'Polaris-Button' %>
+  <%= render "shared/button", text: "Delete", link: product, style_class: 'Polaris-Button--destructive', method: :delete %>
 </div>

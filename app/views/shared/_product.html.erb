@@ -2,7 +2,7 @@
 
 <%# display card %>
 <% cache @product do %>
-  <div class="product-card Polaris-Layout__Section Polaris-Layout__Section--oneThird">
+  <div class="product-card Polaris-Layout__Section Polaris-Layout__Section--oneHalf">
     <div class="Polaris-Card">
       <div class="Polaris-Card__Section">
         <div class="product-card__image">
@@ -19,7 +19,9 @@
 
       <%# are we showing the editing links? %>
       <% if local_assigns[:manage] %>
-        <%= render "shared/product_manage", product: product %>
+        <div class="Polaris-Card__Section">
+          <%= render "shared/product_manage", product: product %>
+        </div>
       <% end %>      
 
     </div>

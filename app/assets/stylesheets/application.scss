@@ -19,12 +19,25 @@
 // colors
 $color-white: #fff;
 $color-teal: #47c1bf;
+$color-indigo: #5c6ac4;
+$color-red-dark: #bf0711;
+
+$color-grey-lighter: #fafafa;
+$color-grey-light: #ddd;
+
+// variables
+
+$form-padding: 0.5em;
 
 // top bar
 
 .Polaris-TopBar__LogoLink {
   text-decoration: none;
   width: 200px;
+
+  &:hover {
+    background-color: inherit;
+  }
 
   .Polaris-TopBar__Logo {
     font-size: 1.4em;
@@ -59,16 +72,72 @@ $color-teal: #47c1bf;
   .product-card__description {
     font-style: italic;
   }
+}
 
-  .Polaris-ButtonGroup__Item {
-    a {
-      padding-left: 0.4em;
-      padding-right: 0.4em;
-      text-decoration: none;
+// product detail
 
-      &:hover {
-        background-color: inherit;
-      }
+.product-detail {
+  .Polaris-CalloutCard__Image {
+    width: 20rem;
+    padding-left: 10rem;
+    margin-right: 10rem;
+  }
+}
+
+// buttons
+
+.Polaris-ButtonGroup__Item {
+  a {
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    text-decoration: none;
+
+    &:hover {
+      background-color: inherit;
+    }
+  }
+}
+
+// forms
+
+.custom-form {
+  label {
+    margin-bottom: $form-padding;
+  }
+
+  .field {
+    margin-bottom: $form-padding;
+  }
+
+  input,
+  textarea {
+    font-size: 1em;
+    padding: $form-padding;
+    background: $color-grey-lighter;
+    border: 1px solid $color-grey-light;
+  }
+
+  input[type="submit"] {
+    background: $color-indigo;
+    color: $color-white;
+    border: none;
+    margin-top: $form-padding;
+  }
+
+  .field_with_errors {
+    background-color: $color-red-dark;
+    padding: $form-padding;
+
+    label {
+      color: $color-white;
+    }
+  }
+
+  #error_explanation {
+    border-color: $color-red-dark;
+
+    h2 {
+      background-color: $color-red-dark;
     }
   }
 }
