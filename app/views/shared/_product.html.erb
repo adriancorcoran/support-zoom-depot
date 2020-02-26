@@ -1,14 +1,5 @@
 <%# product card %>
 
-<% 
-# puts "==="
-# puts product.inspect
-# puts "==="
-# puts product.id
-# puts "==="
-
-%>
-
 <%# display card %>
 <% cache @product do %>
   <div class="product-card Polaris-Layout__Section Polaris-Layout__Section--oneThird">
@@ -28,31 +19,9 @@
 
       <%# are we showing the editing links? %>
       <% if local_assigns[:manage] %>
-        <div class="Polaris-Card__Section">
-          <div class="Polaris-ButtonGroup">
-            <%= render "shared/button", text: "Show", link: product, style_class: 'Polaris-Button' %>
-            <%= render "shared/button", text: "Edit", link: edit_product_path(product), style_class: 'Polaris-Button' %>
-            <%= render "shared/button", text: "Delete", link: product, style_class: 'Polaris-Button--destructive', method: :delete %>
-          </div>
-        </div>
+        <%= render "shared/product_manage", product: product %>
       <% end %>      
 
     </div>
   </div>
 <% end %>
-
-
-
-<%
-=begin
-%>
-
-<%= link_to 'New Product', new_product_path %>
-<%= link_to 'Show', product %>
-<%= link_to 'Edit', edit_product_path(product) %>
-<%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
-<%
-=end
-%>

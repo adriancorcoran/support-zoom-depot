@@ -4,9 +4,9 @@
 
   <%# logo %>
   <div class="Polaris-TopBar__LogoContainer">
-    <a class="Polaris-TopBar__LogoLink" href="/" data-polaris-unstyled="true" style="width: 124px;">
+    <%= link_to store_index_path, class: "Polaris-TopBar__LogoLink" do %>
       <p class="Polaris-TopBar__Logo">The <span>Book</span> Depot</p>
-    </a>
+    <% end %>
   </div>
   <%# logo %>
 
