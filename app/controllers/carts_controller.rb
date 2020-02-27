@@ -70,10 +70,7 @@ class CartsController < ApplicationController
   
   # get total cost of items in the cart or 0
   def total_cost_items
-    if @cart.line_items
-      return @cart.line_items.reduce(0) { |sum, item| sum + item.product.price }     
-    end
-    0
+    @cart.line_items.reduce(0) { |sum, item| sum + item.product.price }     
   end
 
   private
