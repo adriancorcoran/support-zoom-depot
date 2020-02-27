@@ -45,4 +45,10 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to carts_url
   end
+
+  test "index should show the users cart" do
+    get my_cart_url
+    assert_select '.Polaris-Header-Title h1', 'Your Cart'
+  end
+
 end
