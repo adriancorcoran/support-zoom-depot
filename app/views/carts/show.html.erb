@@ -1,6 +1,12 @@
-<% content_for :main_heading_action_button do %>
-  <%= render "shared/button", text: "Back", link: products_path, style_class: 'Polaris-Button--primary' %>
-<% end %>
 
 <%= render 'shared/page_title', title: "Your Cart" %>
-<%= render 'table', title: "Your Cart" %>
+
+<%# check for cart items %>
+<% if @cart.has_line_items? %>
+  <% content_for :main_heading_action_button do %>
+    <%= render "shared/button", text: "Empty Cart", link: @cart, style_class: 'Polaris-Button--destructive', method: :delete %>
+  <% end %>
+  <%= render 'table', title: "Your Cart" %>
+<% else %>
+  <%= render "flash_messages/flash_notice", title: false, message: "You have no items in your cart. #{link_to 'Time to shop?', store_index_path}".html_safe %>
+<% end %>

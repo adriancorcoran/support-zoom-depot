@@ -21,4 +21,9 @@ class Cart < ApplicationRecord
     line_items.reduce(0) { |sum, item| sum + (item.quantity * item.product.price) }     
   end
   
+  # items in the cart
+  def has_line_items?
+    line_items.count > 0
+  end
+  
 end
