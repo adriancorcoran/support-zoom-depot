@@ -65,10 +65,7 @@ class CartsController < ApplicationController
 
   # get total number of items in the cart or 0
   def total_num_items
-    if @cart.line_items
-      return @cart.line_items.count
-    end
-    0
+    @cart.line_items.count
   end
   
   # get total cost of items in the cart or 0
