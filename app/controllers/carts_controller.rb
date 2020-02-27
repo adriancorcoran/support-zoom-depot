@@ -1,11 +1,13 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  include CurrentCart
+  before_action :retrieve_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    set_cart
+    render 'carts/show'
   end
 
   # GET /carts/1
@@ -64,7 +66,7 @@ class CartsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_cart
+    def retrieve_cart
       @cart = Cart.find(params[:id])
     end
 
