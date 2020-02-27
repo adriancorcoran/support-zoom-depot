@@ -1,0 +1,6 @@
+<% content_for :main_heading_action_button do %>
+  <%= render "shared/button", text: "Back", link: products_path, style_class: 'Polaris-Button--primary' %>
+<% end %>
+
+<%= render 'shared/page_title', title: "Your Cart" %>
+<%= render 'table', title: "Your Cart" %>

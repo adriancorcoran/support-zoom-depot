@@ -42,6 +42,10 @@
               <%# layout  %>
               <div class="Polaris-Page__Content">
 
+                <%# flash messages %>
+                <%= render "flash_messages/flash_messages" %>
+
+
                 <%# what kind of controller is this? %>
                 <div class="Polaris-Layout <%= controller.controller_name %>">
                     <%= yield %>                          

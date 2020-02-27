@@ -24,6 +24,13 @@
         </div>
       <% end %>      
 
+      <%# are we showing the cart links? %>
+      <% if local_assigns[:public] %>
+        <div class="Polaris-Card__Section">
+          <%= render "shared/product_public", product: product %>
+        </div>
+      <% end %>      
+
     </div>
   </div>
 <% end %>
