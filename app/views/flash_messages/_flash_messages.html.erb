@@ -1,7 +1,5 @@
 <% # loop through and render any flash messages %>
 
 <% flash.each do | type, message | %>
-  <% unless type == 'title' %>
-    <%= render "flash_messages/flash_" + type, title: flash[:title], message: message %>
-  <% end %>
+  <%= render "flash_messages/flash_" + type, title: false, message: message %>
 <% end %>

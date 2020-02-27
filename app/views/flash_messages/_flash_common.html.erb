@@ -2,9 +2,7 @@
 
 <div>
   <div class="Polaris-Banner__Heading">
-    <p class="Polaris-Heading"><%= title %></p>
-    <div class="Polaris-Banner__Content">
-      <p><%= message %></p>
-    </div>
+    <% if title %><p class="Polaris-Heading"><%= title %></p><% end %>
+    <div class="Polaris-Banner__Content"><p><%= message %></p></div>
   </div>
 </div>
