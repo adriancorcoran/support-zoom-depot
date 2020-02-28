@@ -39,4 +39,10 @@ module ApplicationHelper
     icons[type].html_safe
   end
 
+  def render_if(condition, record)
+    if condition
+      render record
+    end
+  end
+
 end

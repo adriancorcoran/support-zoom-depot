@@ -23,7 +23,7 @@ class Cart < ApplicationRecord
   
   # items in the cart
   def has_line_items?
-    !line_items.empty?
+    line_items.any?
   end
   
 end
