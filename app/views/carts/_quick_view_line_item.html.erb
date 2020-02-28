@@ -1,0 +1,19 @@
+<%# cart quick view line item %>
+
+<% line_items.each do |line_item| %>
+  <div class="Polaris-Navigation__ListItem">
+    <p class="Polaris-Navigation__Item">          
+      <span><%= line_item.quantity %> x</span>
+      <span><%= truncate(line_item.product.title, length: 20) %></span>
+      <span><%= number_to_currency(line_item.total_cost_line_item, unit: "€") %></span>
+    </p>
+  </div>
+<% end %>
+
+<div class="cart-quick-view__total Polaris-Navigation__ListItem">
+  <p class="Polaris-Navigation__Item">          
+    <span>&nbsp</span>
+    <span>Total</span>
+    <span><%= number_to_currency(@cart.total_cost_items, unit: "€") %></span>
+  </p>
+</div>

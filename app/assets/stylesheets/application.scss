@@ -18,12 +18,15 @@
 
 // colors
 $color-white: #fff;
+$color-grey-sky: #dfe3e8;
+$color-grey-dark: #c4cdd5;
 $color-teal: #47c1bf;
 $color-indigo: #5c6ac4;
 $color-red-dark: #bf0711;
 
-$color-grey-lighter: #fafafa;
-$color-grey-light: #ddd;
+$custom-color-grey-lighter: #fafafa;
+$custom-color-grey-light: #ddd;
+$custom-color-grey-medium: #666;
 
 // variables
 
@@ -113,8 +116,8 @@ $form-padding: 0.5em;
   textarea {
     font-size: 1em;
     padding: $form-padding;
-    background: $color-grey-lighter;
-    border: 1px solid $color-grey-light;
+    background: $custom-color-grey-lighter;
+    border: 1px solid $custom-color-grey-light;
   }
 
   input[type="submit"] {
@@ -157,6 +160,42 @@ $form-padding: 0.5em;
       color: inherit;
       background-color: inherit;
     }
+  }
+}
+
+// cart quick view
+
+.cart-quick-view {
+  h2 {
+    font-size: 1.1em;
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+    background-color: $color-teal;
+    color: $color-white;
+  }
+
+  .Polaris-Navigation__Item {
+    font-size: 0.9em;
+  }
+
+  p {
+    display: grid;
+    grid-template-columns: 2em auto 4.5em;
+    grid-row-gap: 5px;
+    color: $custom-color-grey-medium;
+
+    span {
+      line-height: 3rem;
+      text-align: left;
+    }
+    span:nth-child(3) {
+      text-align: right;
+    }
+  }
+
+  .cart-quick-view__total p {
+    border-top: 1px solid $color-grey-dark;
+    font-weight: bold;
   }
 }
 
