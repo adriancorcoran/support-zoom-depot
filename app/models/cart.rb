@@ -18,12 +18,12 @@ class Cart < ApplicationRecord
 
   # get total cost of items in the cart or 0
   def total_cost_items
-    line_items.reduce(0) { |sum, item| sum + (item.quantity * item.product.price) }     
+    line_items.sum(&:total_cost_line_item)
   end
   
   # items in the cart
   def has_line_items?
-    line_items.count > 0
+    line_items.empty?
   end
   
 end

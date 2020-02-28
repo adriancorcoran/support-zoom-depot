@@ -39,8 +39,8 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     product_id = products(:ruby).id
     cart_id = carts(:one).id
     params = {
-      :cart_id => cart_id,
-      :product_id => product_id 
+      cart_id: cart_id,
+      product_id: product_id 
     }
     post line_items_url, params: params
     assert_equal 1, LineItem.find_by(product_id: product_id).quantity
