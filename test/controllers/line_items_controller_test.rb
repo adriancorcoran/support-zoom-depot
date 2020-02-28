@@ -22,8 +22,8 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
 
     follow_redirect!
 
-    assert_select '.Polaris-Header-Title h1', 'Your Cart'
-    assert_select '.Polaris-DataTable__TableRow', @line_item.cart.line_items.count
+    assert_select '.Polaris-Header-Title h1', 'The Catalogue'
+    assert_select '.Polaris-Layout.store', 1
   end
 
   test "should not create line_item" do
@@ -71,4 +71,14 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to line_items_url
   end
+
+  test "should create line_item via ajax" do
+    assert_difference('LineItem.count') do
+      post line_items_url, params: { product_id: products(:ruby).id }, xhr: true
+    end
+
+    assert_response :success
+    assert_match /<p class=\\"Polaris-Navigation__Item line-item-highlight/, @response.body
+  end
+
 end

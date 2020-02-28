@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
+  before_action :set_cart
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -32,8 +32,9 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        flash[:success] = 'Product added!'
-        format.html { redirect_to @line_item.cart }
+        # flash[:success] = 'Product added!'
+        format.html { redirect_to store_index_url }
+        format.js {@current_item = @line_item}
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
