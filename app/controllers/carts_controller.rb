@@ -1,17 +1,18 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  include CurrentCart
+  before_action :set_cart, only: [:index]
+  before_action :retrieve_cart, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    render 'carts/show'
   end
 
   # GET /carts/1
   # GET /carts/1.json
   def show
-    @total_num_items = total_num_items
-    @total_cost_items = total_cost_items
   end
 
   # GET /carts/new
@@ -56,31 +57,32 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart.destroy
+    @cart.destroy if @cart.id == session[:cart_id]
+    session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      format.html { 
+        # flash[:notice] = 'Your cart was emptied.'
+        redirect_to my_cart_url
+      }
       format.json { head :no_content }
     end
   end
 
-  # get total number of items in the cart or 0
-  def total_num_items
-    @cart.line_items.count
-  end
-  
-  # get total cost of items in the cart or 0
-  def total_cost_items
-    @cart.line_items.reduce(0) { |sum, item| sum + item.product.price }     
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_cart
+    def retrieve_cart
       @cart = Cart.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def cart_params
       params.fetch(:cart, {})
+    end
+
+    # invalid cart id supplied
+    def invalid_cart
+      logger.error "Attempt to access an invalid cart: #{params[:id]}"
+      flash[:error] = 'That was an invalid cart you were looking for, naughty!'
+      redirect_to store_index_url
     end
 end

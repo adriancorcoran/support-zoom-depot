@@ -39,10 +39,19 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy cart" do
+    post line_items_url, params: {product_id: products(:ruby).id}
+    cart = Cart.find(session[:cart_id])
+
     assert_difference('Cart.count', -1) do
-      delete cart_url(@cart)
+      delete cart_url(cart)
     end
 
-    assert_redirected_to carts_url
+    assert_redirected_to my_cart_url
   end
+
+  test "index should show the users cart" do
+    get my_cart_url
+    assert_select '.Polaris-Header-Title h1', 'Your Cart'
+  end
+
 end

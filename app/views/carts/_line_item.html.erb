@@ -6,6 +6,6 @@
   <th class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--firstColumn" scope="row"><%= image_tag(product.image_url, width: '75') %></th>
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell"><%= link_to product.title, product  %></td>
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= number_to_currency(product.price, unit: "€") %></td>
-  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric">1</td>
-  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= number_to_currency(1 * product.price, unit: "€") %></td>
+  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= line_item.quantity %></td>
+  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= number_to_currency(line_item.total_cost_line_item, unit: "€") %></td>
 </tr>

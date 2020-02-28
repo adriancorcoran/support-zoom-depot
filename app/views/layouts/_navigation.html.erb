@@ -6,35 +6,26 @@
     <%# section %>
     <ul class="Polaris-Navigation__Section">
 
-      <%# link %>
       <li class="Polaris-Navigation__ListItem">
         <button type="button" class="Polaris-Navigation__Item">
-           <div class="Polaris-Navigation__Icon">
-            <span class="Polaris-Icon">
-              <svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
-                <path d="M19.664 8.252l-9-8a1 1 0 0 0-1.328 0L8 1.44V1a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v5.773L.336 8.252a1.001 1.001 0 0 0 1.328 1.496L2 9.449V19a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9.449l.336.299a.997.997 0 0 0 1.411-.083 1.001 1.001 0 0 0-.083-1.413zM16 18h-2v-5a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v5H4V7.671l6-5.333 6 5.333V18zm-8 0v-4h4v4H8zM4 2h2v1.218L4 4.996V2z" fill-rule="evenodd"></path>
-              </svg>
-            </span>
-          </div>
+          <%= render "layouts/navigation_icon", type: :home %>
           <%= link_to "The Catalogue", store_index_path, class: "Polaris-Navigation__Text" %>
         </button>
       </li>
-      <%# link %>
 
-      <%# link %>
       <li class="Polaris-Navigation__ListItem">
-        <button type="button" class="Polaris-Navigation__Item">
-           <div class="Polaris-Navigation__Icon">
-            <span class="Polaris-Icon">
-              <svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
-                <path d="M19 0h-9c-.265 0-.52.106-.707.293l-9 9a.999.999 0 0 0 0 1.414l9 9a.997.997 0 0 0 1.414 0l9-9A.997.997 0 0 0 20 10V1a1 1 0 0 0-1-1zm-9 17.586L2.414 10 4 8.414 11.586 16 10 17.586zm8-8l-5 5L5.414 7l5-5H18v7.586zM15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2"></path>
-              </svg>
-            </span>
-          </div>
+        <button type="button" class="Polaris-Navigation__Item">          
+          <%= render "layouts/navigation_icon", type: :products %>
           <%= link_to "Products", products_path, class: "Polaris-Navigation__Text" %>
         </button>
       </li>
-      <%# link %>
+
+      <li class="Polaris-Navigation__ListItem">
+        <button type="button" class="Polaris-Navigation__Item">          
+          <%= render "layouts/navigation_icon", type: :cart %>      
+          <%= link_to "My Cart", my_cart_path, class: "Polaris-Navigation__Text" %>
+        </button>
+      </li>
 
     </ul>
     <%# section %>

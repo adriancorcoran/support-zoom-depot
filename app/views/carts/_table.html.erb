@@ -11,7 +11,7 @@
                 <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header Polaris-DataTable__Cell--firstColumn" scope="col">Product</th>
                 <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header" scope="col">Title</th>
                 <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header" scope="col">Unit Price</th>
-                <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header" scope="col">Net quantity</th>
+                <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header" scope="col">Quantity</th>
                 <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header" scope="col">Subtotal</th>
               </tr>
             </thead>
@@ -24,8 +24,8 @@
                 <th class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--firstColumn Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter" scope="row">Totals</th>
                 <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter"></td>
                 <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter"></td>
-                <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter Polaris-DataTable__Cell--numeric"><%= @total_num_items %></td>
-                <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter Polaris-DataTable__Cell--numeric"><%= number_to_currency(@total_cost_items, unit: "€") %></td>
+                <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter Polaris-DataTable__Cell--numeric"><%= @cart.total_num_items %></td>
+                <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter Polaris-DataTable__Cell--numeric"><%= number_to_currency(@cart.total_cost_items, unit: "€") %></td>
               </tr>
             </tfoot>
           </table>
