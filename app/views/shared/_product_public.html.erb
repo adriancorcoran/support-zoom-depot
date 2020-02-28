@@ -1,5 +1,5 @@
 <%# product manage buttons %>
 
 <div class="Polaris-ButtonGroup">
-  <%= render "shared/button", text: "Add to Cart", link: line_items_path(product_id: product), style_class: 'Polaris-Button--primary', method: :post %>
+  <%= render "shared/button", text: "Add to Cart", link: line_items_path(product_id: product), style_class: 'Polaris-Button--primary', method: :post, remote: true %>
 </div>

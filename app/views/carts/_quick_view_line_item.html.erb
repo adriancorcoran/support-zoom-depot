@@ -2,7 +2,7 @@
 
 <% line_items.each do |line_item| %>
   <div class="Polaris-Navigation__ListItem">
-    <p class="Polaris-Navigation__Item">          
+    <p class="Polaris-Navigation__Item<% if @current_item == line_item %> line-item-highlight<% end %>">
       <span><%= line_item.quantity %> x</span>
       <span><%= truncate(line_item.product.title, length: 20) %></span>
       <span><%= number_to_currency(line_item.total_cost_line_item, unit: "€") %></span>

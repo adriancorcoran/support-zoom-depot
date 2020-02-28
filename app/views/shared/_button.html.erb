@@ -6,11 +6,11 @@
   <% when :disabled %>
     <%= render "shared/button_markup", button_properties: button_properties %>
   <% when :delete %>
-    <%= link_to local_assigns[:link], data: { method: 'delete', confirm: 'Are you sure?' } do %>
+    <%= link_to local_assigns[:link], data: { method: 'delete', confirm: 'Are you sure?' }, remote: button_properties[:remote] do %>
       <%= render "shared/button_markup", button_properties: button_properties %>
     <% end %>
   <% else  %>
-    <%= link_to local_assigns[:link], method: button_properties[:type] do %>
+    <%= link_to local_assigns[:link], method: button_properties[:type], remote: button_properties[:remote] do %>
       <%= render "shared/button_markup", button_properties: button_properties %>
     <% end %>
   <% end %>

@@ -23,6 +23,7 @@ $color-grey-dark: #c4cdd5;
 $color-teal: #47c1bf;
 $color-indigo: #5c6ac4;
 $color-red-dark: #bf0711;
+$color-yellow-light: #ffea8a;
 
 $custom-color-grey-lighter: #fafafa;
 $custom-color-grey-light: #ddd;
@@ -196,6 +197,19 @@ $form-padding: 0.5em;
   .cart-quick-view__total p {
     border-top: 1px solid $color-grey-dark;
     font-weight: bold;
+  }
+
+  @keyframes line-item-highlight {
+    0% {
+      background: $color-yellow-light;
+    }
+    100% {
+      background: inherit;
+    }
+  }
+
+  .line-item-highlight {
+    animation: line-item-highlight 3s;
   }
 }
 
