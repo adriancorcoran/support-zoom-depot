@@ -20,14 +20,14 @@
       <%# are we showing the editing links? %>
       <% if local_assigns[:manage] %>
         <div class="Polaris-Card__Section">
-          <%= render "shared/product_manage", product: product %>
+          <%= render "products/product_manage", product: product %>
         </div>
       <% end %>      
 
       <%# are we showing the cart links? %>
       <% if local_assigns[:public] %>
         <div class="Polaris-Card__Section">
-          <%= render "shared/product_public", product: product %>
+          <%= render "products/product_public", product: product %>
         </div>
       <% end %>      
 

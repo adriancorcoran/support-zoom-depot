@@ -5,5 +5,5 @@
 <%= render 'shared/page_title', title: 'Products' %>
 
 <% cache @products do %>
-  <%= render partial: "shared/product", collection: @products, locals: { manage: true } %>
+  <%= render partial: "product", collection: @products, locals: { manage: true } %>
 <% end %>

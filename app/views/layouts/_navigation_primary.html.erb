@@ -2,20 +2,26 @@
 
 <li class="Polaris-Navigation__ListItem">
   <button type="button" class="Polaris-Navigation__Item">
-    <%= render "layouts/navigation_icon", type: :home %>
+    <div class="Polaris-Navigation__Icon">
+      <%= render "shared/icon", type: :home %>
+    </div>
     <%= link_to "The Catalogue", store_index_path, class: "Polaris-Navigation__Text" %>
   </button>
 </li>
 
 <li class="Polaris-Navigation__ListItem">
-  <button type="button" class="Polaris-Navigation__Item">          
-    <%= render "layouts/navigation_icon", type: :products %>
+  <button type="button" class="Polaris-Navigation__Item">
+    <div class="Polaris-Navigation__Icon">
+      <%= render "shared/icon", type: :products %>
+    </div>
     <%= link_to "Manage Products", products_path, class: "Polaris-Navigation__Text" %>
   </button>
 
 <li class="Polaris-Navigation__ListItem">
-  <button type="button" class="Polaris-Navigation__Item">          
-    <%= render "layouts/navigation_icon", type: :cart %>      
+  <button type="button" class="Polaris-Navigation__Item">
+    <div class="Polaris-Navigation__Icon">
+      <%= render "shared/icon", type: :cart %>      
+    </div>
     <%= link_to "My Cart", my_cart_path, class: "Polaris-Navigation__Text" %>
   </button>
 </li>

@@ -8,4 +8,10 @@
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= number_to_currency(product.price, unit: "€") %></td>
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= line_item.quantity %></td>
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= number_to_currency(line_item.total_cost_line_item, unit: "€") %></td>
+  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric">
+    <div class="icon-delete">
+      <% markup = render "shared/icon", type: :delete %>
+      <%= link_to markup, line_item_path(line_item.id), method: :delete %>
+    </div>
+  </td>
 </tr>

@@ -42,4 +42,13 @@ class LineItemsTest < ApplicationSystemTestCase
 
     assert_text "Line item was successfully destroyed"
   end
+
+  test "deleting a line item" do
+    visit store_index_url
+    click_on "Add to Cart", match: :first
+    visit carts_url
+    assert_selector "h1.Polaris-DisplayText", text: "Your Cart"
+    find(:css, '.icon-delete a').click
+    assert_selector ".Polaris-Banner p", text: "You have no items in your cart."
+  end
 end

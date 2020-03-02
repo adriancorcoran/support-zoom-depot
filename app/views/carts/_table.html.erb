@@ -13,6 +13,7 @@
                 <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header" scope="col">Unit Price</th>
                 <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header" scope="col">Quantity</th>
                 <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header" scope="col">Subtotal</th>
+                <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header" scope="col">&nbsp;</th>
               </tr>
             </thead>
             <tbody>
@@ -26,6 +27,7 @@
                 <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter"></td>
                 <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter Polaris-DataTable__Cell--numeric"><%= @cart.total_num_items %></td>
                 <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter Polaris-DataTable__Cell--numeric"><%= number_to_currency(@cart.total_cost_items, unit: "€") %></td>
+                <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter Polaris-DataTable__Cell--numeric">&nbsp;</td>
               </tr>
             </tfoot>
           </table>

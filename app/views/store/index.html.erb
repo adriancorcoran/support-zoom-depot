@@ -2,5 +2,5 @@
 <%= render partial: "shared/page_title", locals: { title: "The Catalogue" } %>
 
 <% cache @products do %>
-  <%= render partial: "shared/product", collection: @products, locals: { public: true } %>
+  <%= render partial: "products/product", collection: @products, locals: { public: true } %>
 <% end %>

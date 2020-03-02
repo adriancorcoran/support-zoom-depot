@@ -62,7 +62,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to line_items_url, notice: 'Product removed!' }
+      format.html { redirect_to carts_url }
       format.json { head :no_content }
     end
   end

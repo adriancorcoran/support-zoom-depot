@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Adrian Corcoran
+  address: Gillstown, Kilglass, Strokestown, Co. Roscommon, F42F972, Ireland
+  email: adriancorcoran36@gmail.com
+  pay_type: 1
+
+two:
+  name: Karen McCrann
+  address: Tig Lily, Kilbride, Swinford, Co. Mayo, F12HT25, Ireland
+  email: karen.mccrann@shopify.com
+  pay_type: 2

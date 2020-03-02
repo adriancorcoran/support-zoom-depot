@@ -36,17 +36,18 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should increase line_item quantity" do
+    # can't send the cart id to the line item creator as line_items sill set a new cart id
+    # when we add the product, need to get the last line_item to get its id
     product_id = products(:ruby).id
-    cart_id = carts(:one).id
     params = {
-      cart_id: cart_id,
       product_id: product_id 
     }
     post line_items_url, params: params
-    assert_equal 1, LineItem.find_by(product_id: product_id).quantity
+    new_line_item = LineItem.order(id: :asc).last
+    assert_equal 1, LineItem.find_by(id: new_line_item).quantity
     post line_items_url, params: params
     post line_items_url, params: params
-    assert_equal 3, LineItem.find_by(product_id: product_id).quantity
+    assert_equal 3, LineItem.find_by(id: new_line_item).quantity
   end
 
   test "should show line_item" do
@@ -69,7 +70,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
       delete line_item_url(@line_item)
     end
 
-    assert_redirected_to line_items_url
+    assert_redirected_to carts_url
   end
 
   test "should create line_item via ajax" do
@@ -81,4 +82,18 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     assert_match /<p class=\\"Polaris-Navigation__Item line-item-highlight/, @response.body
   end
 
+  test "should delete line_item" do
+    product_id = products(:ruby).id
+    params = {
+      product_id: product_id 
+    }
+    post line_items_url, params: params
+    new_line_item = LineItem.order(id: :asc).last
+    assert_equal 1, LineItem.find_by(id: new_line_item).quantity
+    delete line_item_url(new_line_item.id)
+    assert_raises(ActiveRecord::RecordNotFound) do
+      LineItem.find(new_line_item.id)
+    end
+  end
+  
 end

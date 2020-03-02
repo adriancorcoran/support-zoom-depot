@@ -5,6 +5,7 @@
 <% if @cart.has_line_items? %>
   <% content_for :main_heading_action_button do %>
     <%= render "shared/button", text: "Empty Cart", link: @cart, style_class: 'Polaris-Button--destructive', method: :delete %>
+    <%= render "shared/button", text: "Checkout", link: new_order_path, style_class: 'Polaris-Button--primary'%>
   <% end %>
   <%= render 'table', title: "Your Cart" %>
 <% else %>
