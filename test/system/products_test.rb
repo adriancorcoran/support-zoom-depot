@@ -46,4 +46,11 @@ class ProductsTest < ApplicationSystemTestCase
 
     assert_text "Product was successfully destroyed"
   end
+  
+  test "viewing product ordered in" do
+    visit products_url
+    click_on "Who bought?", match: :first
+    assert_text "Customers who bought"
+  end
+
 end

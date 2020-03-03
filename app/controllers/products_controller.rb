@@ -68,6 +68,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  # GET /who_bought/1
+  # GET /who_bought/1.json
+  def who_bought
+    @product = Product.find_by(id: params[:id])
+    @orders = @product.orders.order(id: :desc)
+    # don't want any caching in our API, instead of stale, we will rate limit our fictional api users
+    respond_to do |format|
+      format.json
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

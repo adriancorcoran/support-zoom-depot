@@ -54,4 +54,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to products_url
   end
+
+  test "who bought should return json" do
+    get who_bought_product_url(@product.id, :format => :json)
+    assert_response :success
+    response = JSON.parse(@response.body)
+    assert_equal "Customers who bought '#{@product.title}'", response['title']
+  end
 end
