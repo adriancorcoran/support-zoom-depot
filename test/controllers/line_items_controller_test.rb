@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'test_helper'
 
 class LineItemsControllerTest < ActionDispatch::IntegrationTest
@@ -40,7 +41,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     # when we add the product, need to get the last line_item to get its id
     product_id = products(:ruby).id
     params = {
-      product_id: product_id 
+      product_id: product_id,
     }
     post line_items_url, params: params
     new_line_item = LineItem.order(id: :asc).last
@@ -79,13 +80,13 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_response :success
-    assert_match /<p class=\\"Polaris-Navigation__Item line-item-highlight/, @response.body
+    assert_match(/<p class=\\"Polaris-Navigation__Item line-item-highlight/, @response.body)
   end
 
   test "should delete line_item" do
     product_id = products(:ruby).id
     params = {
-      product_id: product_id 
+      product_id: product_id,
     }
     post line_items_url, params: params
     new_line_item = LineItem.order(id: :asc).last
@@ -95,5 +96,4 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
       LineItem.find(new_line_item.id)
     end
   end
-  
 end

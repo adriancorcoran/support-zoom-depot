@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CopyProductPriceToLineItems < ActiveRecord::Migration[6.0]
   def up
     # loop through line items and set the price
@@ -6,7 +7,7 @@ class CopyProductPriceToLineItems < ActiveRecord::Migration[6.0]
       line_item.save!
     end
   end
-  
+
   def down
     # loop through line items and set the price
     LineItem.all.each do |line_item|

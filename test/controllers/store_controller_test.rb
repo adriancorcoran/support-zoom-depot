@@ -1,7 +1,7 @@
+# frozen_string_literal: true
 require 'test_helper'
 
 class StoreControllerTest < ActionDispatch::IntegrationTest
-
   PRICE_PATTERN = /\€[,\d]+\.\d\d/
 
   setup do
@@ -18,5 +18,4 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
     end
     assert_select '.product-card__price', PRICE_PATTERN
   end
-
 end

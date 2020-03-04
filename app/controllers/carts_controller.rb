@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CartsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:index]
@@ -7,7 +8,7 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    render 'carts/show'
+    render('carts/show')
   end
 
   # GET /carts/1
@@ -59,29 +60,30 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { 
+      format.html do
         # flash[:notice] = 'Your cart was emptied.'
         redirect_to my_cart_url
-      }
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def retrieve_cart
-      @cart = Cart.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cart_params
-      params.fetch(:cart, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def retrieve_cart
+    @cart = Cart.find(params[:id])
+  end
 
-    # invalid cart id supplied
-    def invalid_cart
-      logger.error "Attempt to access an invalid cart: #{params[:id]}"
-      flash[:error] = 'That was an invalid cart you were looking for, naughty!'
-      redirect_to store_index_url
-    end
+  # Only allow a list of trusted parameters through.
+  def cart_params
+    params.fetch(:cart, {})
+  end
+
+  # invalid cart id supplied
+  def invalid_cart
+    logger.error("Attempt to access an invalid cart: #{params[:id]}")
+    flash[:error] = 'That was an invalid cart you were looking for, naughty!'
+    redirect_to(store_index_url)
+  end
 end
