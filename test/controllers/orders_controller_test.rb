@@ -7,10 +7,10 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get orders_url(format: :json)
+    get orders_url, as: :json
     assert_response :success
-    response = JSON.parse(@response.body)
-    assert_instance_of Array, response
+    response_body = JSON.parse(response.body)
+    assert_instance_of Array, response_body
   end
 
   test "should get new" do
