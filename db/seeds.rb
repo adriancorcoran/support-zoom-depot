@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #---
 # Excerpted from "Agile Web Development with Rails 5.1",
 # published by The Pragmatic Bookshelf.
@@ -21,7 +22,7 @@ Product.create!(title: 'Rails, Angular, Postgres, and Bootstrap',
       and learn to use these technologies effectively in a Ruby on Rails
       environment.
       </p>},
-  image_url: 'dcbang.jpg',    
+  image_url: 'dcbang.jpg',
   price: 45.00)
 # . . .
 Product.create!(title: 'Seven Mobile Apps in Seven Weeks',
@@ -41,7 +42,7 @@ Product.create!(title: 'Seven Mobile Apps in Seven Weeks',
 Product.create!(title: 'Ruby Performance Optimization',
   description:
     %{<p>
-      <em>Why Ruby Is Slow, and How to Fix It</em> 
+      <em>Why Ruby Is Slow, and How to Fix It</em>
       You don’t have to accept slow Ruby or Rails performance. In this
       comprehensive guide to Ruby optimization, you’ll learn how to write
       faster Ruby code—but that’s just the beginning. See exactly what makes

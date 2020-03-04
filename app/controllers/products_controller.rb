@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ProductsController < ApplicationController
   include CurrentCart
   before_action :set_cart
@@ -49,8 +50,8 @@ class ProductsController < ApplicationController
         format.json { render :show, status: :ok, location: @product }
 
         # broadcast update info
-        @products = Product.all.order(:title) 
-        ActionCable.server.broadcast 'products_channel', html: render_to_string('store/index', layout: false)        
+        @products = Product.all.order(:title)
+        ActionCable.server.broadcast('products_channel', html: render_to_string('store/index', layout: false))
       else
         format.html { render :edit }
         format.json { render json: @product.errors, status: :unprocessable_entity }
@@ -77,17 +78,17 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.json
     end
-
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def product_params
-      params.require(:product).permit(:title, :description, :image_url, :price)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def product_params
+    params.require(:product).permit(:title, :description, :image_url, :price)
+  end
 end

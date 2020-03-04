@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -57,3 +58,6 @@ gem 'shopify-cloud', source: 'https://packages.shopify.io/shopify/gems'
 
 # add coffee script gem
 gem 'coffee-rails'
+
+# add rubocop
+gem 'rubocop', require: false

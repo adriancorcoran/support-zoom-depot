@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
 
@@ -6,24 +7,23 @@ class Cart < ApplicationRecord
     if current_item
       current_item.quantity += 1
     else
-      current_item = line_items.build(product_id: product.id, price: product.price)      
+      current_item = line_items.build(product_id: product.id, price: product.price)
     end
     current_item
   end
 
   # get total number of items in the cart or 0
   def total_num_items
-    line_items.reduce(0) { |sum, item| sum + item.quantity }     
+    line_items.reduce(0) { |sum, item| sum + item.quantity }
   end
 
   # get total cost of items in the cart or 0
   def total_cost_items
     line_items.sum(&:total_cost_line_item)
   end
-  
+
   # items in the cart
   def has_line_items?
     line_items.any?
   end
-  
 end

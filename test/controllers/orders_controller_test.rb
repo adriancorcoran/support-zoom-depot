@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'test_helper'
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
@@ -6,21 +7,26 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get orders_url :format => :json
+    get orders_url(format: :json)
     assert_response :success
     response = JSON.parse(@response.body)
     assert_instance_of Array, response
   end
 
   test "should get new" do
-    post line_items_url, params: {product_id: products(:ruby).id}
+    post line_items_url, params: { product_id: products(:ruby).id }
     get new_order_url
     assert_response :success
   end
 
   test "should create order" do
     assert_difference('Order.count') do
-      post orders_url, params: { order: { address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type } }
+      post orders_url, params: { order: {
+        address: @order.address,
+        email: @order.email,
+        name: @order.name,
+        pay_type: @order.pay_type,
+      } }
     end
 
     assert_redirected_to store_index_url
@@ -37,7 +43,12 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update order" do
-    patch order_url(@order), params: { order: { address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type } }
+    patch order_url(@order), params: { order: {
+      address: @order.address,
+      email: @order.email,
+      name: @order.name,
+      pay_type: @order.pay_type,
+    } }
     assert_redirected_to order_url(@order)
   end
 

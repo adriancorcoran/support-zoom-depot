@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart
@@ -34,7 +35,7 @@ class LineItemsController < ApplicationController
       if @line_item.save
         # flash[:success] = 'Product added!'
         format.html { redirect_to store_index_url }
-        format.js {@current_item = @line_item}
+        format.js { @current_item = @line_item }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
@@ -68,13 +69,14 @@ class LineItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_line_item
-      @line_item = LineItem.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def line_item_params
-      params.require(:line_item).permit(:product_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_line_item
+    @line_item = LineItem.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def line_item_params
+    params.require(:line_item).permit(:product_id)
+  end
 end
