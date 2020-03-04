@@ -34,8 +34,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        Cart.destroy(session[:cart_id])
-        session[:cart_id] = nil
+        destroy_cart
         flash[:notice] = 'Thank you for your order!'
         format.html { redirect_to store_index_url }
         format.json { render :show, status: :created, location: @order }
@@ -101,5 +100,11 @@ class OrdersController < ApplicationController
     else
       {}
     end
+  end
+
+  # reset the cart after creating an order
+  def destroy_cart
+    Cart.destroy(session[:cart_id])
+    session[:cart_id] = nil
   end
 end
