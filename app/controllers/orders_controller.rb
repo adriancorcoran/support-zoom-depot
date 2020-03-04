@@ -36,6 +36,7 @@ class OrdersController < ApplicationController
       if @order.save
         destroy_cart
         flash[:notice] = 'Thank you for your order!'
+        OrderMailer.received(@order).deliver_later
         format.html { redirect_to store_index_url }
         format.json { render :show, status: :created, location: @order }
       else
