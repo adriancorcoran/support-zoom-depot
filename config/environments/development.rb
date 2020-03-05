@@ -37,6 +37,11 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # use letter opener to view emails
+  config.action_mailer.delivery_method = :letter_opener
+  # pops open emails in the browser
+  config.action_mailer.perform_deliveries = true
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -60,6 +65,9 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # set the job worker to use
+  config.active_job.queue_adapter = :inline
 end
 Rails.application.configure do
   config.hosts << "support-zoom-depot.myshopify.io"
