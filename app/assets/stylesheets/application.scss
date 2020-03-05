@@ -24,6 +24,7 @@ $color-teal: #47c1bf;
 $color-indigo: #5c6ac4;
 $color-purple-dark: #230051;
 $color-red-dark: #bf0711;
+$color-yellow: #eec200;
 $color-yellow-light: #ffea8a;
 
 $custom-color-grey-lighter: #fafafa;
@@ -230,4 +231,7 @@ $form-padding: 0.5em;
 
 .icon-delete path {
   fill: $color-red-dark;
+}
+.icon-edit path {
+  fill: $color-yellow;
 }

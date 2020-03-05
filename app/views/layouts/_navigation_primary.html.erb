@@ -25,6 +25,7 @@
     </div>
     <%= link_to "Manage Products", products_path, class: "Polaris-Navigation__Text" %>
   </button>
+</li>
 
 <li class="Polaris-Navigation__ListItem">
   <button type="button" class="Polaris-Navigation__Item">
@@ -33,3 +34,13 @@
     </div>
     <%= link_to "Manage Orders", orders_path, class: "Polaris-Navigation__Text" %>
   </button>
+</li>
+
+<li class="Polaris-Navigation__ListItem">
+  <button type="button" class="Polaris-Navigation__Item">
+    <div class="Polaris-Navigation__Icon">
+      <%= render "shared/icon", type: :users %>
+    </div>
+    <%= link_to "Manage Users", users_path, class: "Polaris-Navigation__Text" %>
+  </button>
+</li>

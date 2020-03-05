@@ -1,0 +1,45 @@
+<%# users table %>
+
+<div class="Polaris-Page__Content">
+  <div class="Polaris-Card">
+    <div class="">
+      <div class="users-table Polaris-DataTable">
+        <div class="Polaris-DataTable__ScrollContainer">
+          <table class="Polaris-DataTable__Table">
+            <thead>
+              <tr>
+                <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header Polaris-DataTable__Cell--firstColumn" scope="col">User Name</th>
+                <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header">Last Updated</th>
+                <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header" scope="col">&nbsp;</th>
+                <th data-polaris-header-cell="true" class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--header" scope="col">&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            <%= render @users %>
+
+<%
+=begin
+%>
+
+            <tfoot>
+              <tr>
+                <th class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--firstColumn Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter" scope="row">Totals</th>
+                <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter"></td>
+                <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter"></td>
+                <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter Polaris-DataTable__Cell--numeric"><%= @cart.total_num_items %></td>
+                <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter Polaris-DataTable__Cell--numeric"><%= number_to_currency(@cart.total_cost_items, unit: "€") %></td>
+                <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--total Polaris-DataTable--cellTotalFooter Polaris-DataTable__Cell--numeric">&nbsp;</td>
+              </tr>
+            </tfoot>
+
+
+<%
+=end
+%>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
