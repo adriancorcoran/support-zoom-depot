@@ -68,6 +68,12 @@ $form-padding: 0.5em;
   }
 }
 
+// main content area
+
+#main {
+  min-height: 75vh;
+}
+
 // product cards
 
 .product-card {

@@ -45,6 +45,8 @@
                 <%# flash messages %>
                 <%= render "flash_messages/flash_messages" %>
 
+                <%# placeholder to take in content before any cards / layout items %>
+                <%= yield :main_content_text %>
 
                 <%# what kind of controller is this? %>
                 <div id="main" class="Polaris-Layout <%= controller.controller_name %>">

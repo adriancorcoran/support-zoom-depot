@@ -1,0 +1,5 @@
+<%= render 'shared/page_title', title: "Welcome to the Admin" %>
+
+<% content_for :main_content_text do %>
+  <p>It's <%= Time.now.to_formatted_s(:long_ordinal) %> and we have <%= pluralize(@total_orders, "order") %>.</p>
+<% end %>
