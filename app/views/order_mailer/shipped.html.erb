@@ -1,5 +1,8 @@
-<h1>Dear <%= @order.name %></h1>
+<%= render "email_structure" do %>
+  <h1><%= @subject %></h1>
+  <p>Dear <%= @order.name %></p>
+  <p>Your order is on the way and should be with you tomorrow!</p>
+  <p>Thanks for shopping with us and we hope to see you again  :)</p>
+<% end %>
 
-<p>Your order is on the way and should be with you tomorrow!</p>
 
-<p>Thanks for shopping with us and we hope to see you again  :)</p>
