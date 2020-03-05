@@ -1,9 +1,9 @@
-<h1>Dear <%= @order.name %></h1>
-
-<p>Thanks for your order! Here's what you got...</p>
-
-<ul>
-  <%= render @order.line_items -%>
-</ul>
-
-<p>As soon as your order ships, we'll let you know :)</p>
+<%= render "email_structure" do %>
+  <h1><%= @subject %></h1>
+  <p>Dear <%= @order.name %></p>
+  <p>Thanks for your order! Here's what you got...</p>
+  <ul>
+    <%= render @order.line_items -%>
+  </ul>
+  <p>As soon as your order ships, we'll let you know :)</p>
+<% end %>

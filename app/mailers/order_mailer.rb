@@ -9,7 +9,8 @@ class OrderMailer < ApplicationMailer
   #
   def received(order)
     @order = order
-    mail(to: order.email, subject: "We got your order!")
+    @subject = "We got your order!"
+    mail(to: order.email, subject: @subject)
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -19,6 +20,7 @@ class OrderMailer < ApplicationMailer
   #
   def shipped(order)
     @order = order
-    mail(to: order.email, subject: "Your order is on the way!")
+    @subject = "Your order is on the way!"
+    mail(to: order.email, subject: @subject)
   end
 end
