@@ -23,12 +23,6 @@ class Order < ApplicationRecord
     payment_details = {}
     payment_method = nil
 
-    puts " "
-    puts "---"
-    puts pay_type_params
-    puts "---"
-    puts " "
-
     case pay_type
     when "Check"
       payment_method = :check

@@ -85,7 +85,7 @@ class OrdersController < ApplicationController
   # check the cart has items
   def ensure_cart_has_items
     if @cart.line_items.empty?
-      # flash[:error] = 'Your cart is empty, do some shopping!'
+      flash[:error] = 'Your cart is empty, do some shopping!'
       redirect_to(store_index_url)
     end
   end

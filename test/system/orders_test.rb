@@ -2,6 +2,8 @@
 require "application_system_test_case"
 
 class OrdersTest < ApplicationSystemTestCase
+  include ActiveJob::TestHelper
+
   setup do
     @order = orders(:one)
     @order_fill_in_details = {
@@ -58,22 +60,10 @@ class OrdersTest < ApplicationSystemTestCase
   #   assert_text "Order was successfully destroyed"
   # end
 
-  test "check credit card is displayed" do
-    visit store_index_url
-    click_on "Add to Cart", match: :first
-    click_on "My Cart", match: :first
-    click_on "Checkout"
-    fill_in 'order_name', with: @order_fill_in_details[:name]
-    fill_in 'order_address', with: @order_fill_in_details[:address]
-    fill_in 'order_email', with: @order_fill_in_details[:email]
-    assert_no_selector "#order_credit_card_number"
-    assert_no_selector "#order_expiration_date"
-    select 'Credit card', from: 'pay_type'
-    assert_selector "#order_credit_card_number"
-    assert_selector "#order_expiration_date"
-  end
-
-  test "check routing number is displayed" do
+  test "check order by routing number" do
+    # get current number of orders
+    current_num_orders = Order.all.size
+    # travlel the path
     visit store_index_url
     click_on "Add to Cart", match: :first
     click_on "My Cart", match: :first
@@ -86,9 +76,71 @@ class OrdersTest < ApplicationSystemTestCase
     select 'Check', from: 'pay_type'
     assert_selector "#order_routing_number"
     assert_selector "#order_account_number"
+    fill_in "Routing #", with: "1234456"
+    fill_in "Account #", with: "789"
+    # do background jobs triggered by the passed block
+    perform_enqueued_jobs do
+      click_button "Place Order"
+    end
+    # check order was created
+    orders = Order.all.order(id: :asc)
+    assert_equal current_num_orders + 1, orders.size
+    order = orders.last
+    assert_equal @order_fill_in_details[:name], order.name
+    assert_equal @order_fill_in_details[:address], order.address
+    assert_equal @order_fill_in_details[:email], order.email
+    assert_equal "Check", order.pay_type
+    assert_equal 1, order.line_items.size
+    # check emails was sent (in test, this is saved in the ActionMailer::Base.deliveries array)
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal [@order_fill_in_details[:email]], mail.to
+    assert_equal 'Adrian Corcoran <adrian.corcoran@shopify.com>', mail[:from].value
+    assert_equal 'We got your order!', mail.subject
   end
 
-  test "check purchase order is displayed" do
+  test "check order by credit card" do
+    # get current number of orders
+    current_num_orders = Order.all.size
+    # travlel the path
+    visit store_index_url
+    click_on "Add to Cart", match: :first
+    click_on "My Cart", match: :first
+    click_on "Checkout"
+    fill_in 'order_name', with: @order_fill_in_details[:name]
+    fill_in 'order_address', with: @order_fill_in_details[:address]
+    fill_in 'order_email', with: @order_fill_in_details[:email]
+    assert_no_selector "#order_credit_card_number"
+    assert_no_selector "#order_expiration_date"
+    select 'Credit card', from: 'pay_type'
+    assert_selector "#order_credit_card_number"
+    assert_selector "#order_expiration_date"
+
+    fill_in "CC #", with: "00001111222233333"
+    fill_in "Expiry", with: "13/12"
+    # do background jobs triggered by the passed block
+    perform_enqueued_jobs do
+      click_button "Place Order"
+    end
+    # check order was created
+    orders = Order.all.order(id: :asc)
+    assert_equal current_num_orders + 1, orders.size
+    order = orders.last
+    assert_equal @order_fill_in_details[:name], order.name
+    assert_equal @order_fill_in_details[:address], order.address
+    assert_equal @order_fill_in_details[:email], order.email
+    assert_equal "Credit card", order.pay_type
+    assert_equal 1, order.line_items.size
+    # check emails was sent (in test, this is saved in the ActionMailer::Base.deliveries array)
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal [@order_fill_in_details[:email]], mail.to
+    assert_equal 'Adrian Corcoran <adrian.corcoran@shopify.com>', mail[:from].value
+    assert_equal 'We got your order!', mail.subject
+  end
+
+  test "check order by purchase order" do
+    # get current number of orders
+    current_num_orders = Order.all.size
+    # travlel the path
     visit store_index_url
     click_on "Add to Cart", match: :first
     click_on "My Cart", match: :first
@@ -99,6 +151,25 @@ class OrdersTest < ApplicationSystemTestCase
     assert_no_selector "#order_po_number"
     select 'Purchase order', from: 'pay_type'
     assert_selector "#order_po_number"
+    fill_in "PO #", with: "671524"
+    # do background jobs triggered by the passed block
+    perform_enqueued_jobs do
+      click_button "Place Order"
+    end
+    # check order was created
+    orders = Order.all.order(id: :asc)
+    assert_equal current_num_orders + 1, orders.size
+    order = orders.last
+    assert_equal @order_fill_in_details[:name], order.name
+    assert_equal @order_fill_in_details[:address], order.address
+    assert_equal @order_fill_in_details[:email], order.email
+    assert_equal "Purchase order", order.pay_type
+    assert_equal 1, order.line_items.size
+    # check emails was sent (in test, this is saved in the ActionMailer::Base.deliveries array)
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal [@order_fill_in_details[:email]], mail.to
+    assert_equal 'Adrian Corcoran <adrian.corcoran@shopify.com>', mail[:from].value
+    assert_equal 'We got your order!', mail.subject
   end
 
   test "check no payment method is displayed" do
