@@ -19,5 +19,8 @@ module SupportZoomDepot
 
     # don't log sensitive info
     config.filter_parameters += [:credit_card_number, :expiration_date, :routing_number, :account_number, :po_number]
+
+    config.i18n.available_locales = [:en, :ga]
+    config.i18n.default_locale = :en
   end
 end

@@ -29,10 +29,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
+ga:
   layouts:
     top_bar:
-      title_html: "The <span>Book</span> Depot"
+      title_html: "An Iosta <span>Leabhar</span>"
     navigation_primary:
-      catalogue: "The Catalogue"
-      cart: "My Cart"
+      catalogue: "An Chatalóg"
+      cart: "An Charta"

@@ -62,7 +62,8 @@ $form-padding: 0.5em;
 .Polaris-Navigation__Text {
   text-decoration: none;
 
-  &:hover {
+  &:hover,
+  &:visited {
     color: inherit;
     background-color: inherit;
   }

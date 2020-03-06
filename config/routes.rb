@@ -12,16 +12,20 @@ Rails.application.routes.draw do
   end
 
   # models
-  resources :users
-  resources :orders
-  resources :line_items
-  resources :carts
 
-  # custom
-  get '/my_cart', to: 'carts#index', as: "my_cart"
-  root 'store#index', as: 'store_index'
-  resources :products do
-    get :who_bought, on: :member
+  scope '(:locale)' do
+    resources :users
+    resources :products do
+      get :who_bought, on: :member
+    end
+    resources :orders
+    resources :line_items
+    resources :carts
+    # custom
+    get '/my_cart', to: 'carts#index', as: "my_cart"
+
+    root 'store#index', as: 'store_index'
   end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
