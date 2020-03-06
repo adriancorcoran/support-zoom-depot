@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class CartsController < ApplicationController
+  skip_before_action :authorize, only: [:index, :create, :update, :destroy]
+
   include CurrentCart
   before_action :set_cart, only: [:index]
   before_action :retrieve_cart, only: [:show, :edit, :update, :destroy]
