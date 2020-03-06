@@ -9,6 +9,19 @@
     </ul>
     <%# section %>
 
+    <%# didn't use the render_if function below as this is not a partial, and passing %>
+    <%# markup and a render to the block was causing unnecessary headaches %>
+    <% if session[:user_id] %>
+      <%# section %>
+      <ul class="Polaris-Navigation__Section">
+        <li class="Polaris-Navigation__SectionHeading">
+          <span class="Polaris-Navigation__Text">Admin</span>        
+        </li>
+        <%= render "layouts/navigation_admin" %>
+      </ul>
+      <%# section %>
+    <% end %>
+
     <%# section %>    
     <ul id="cart-quick-view" class="cart-quick-view Polaris-Navigation__Section">
       <%= render_if @cart && @cart.has_line_items?, "carts/quick_view" %>
