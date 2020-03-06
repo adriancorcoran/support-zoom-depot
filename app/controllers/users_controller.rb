@@ -67,6 +67,11 @@ class UsersController < ApplicationController
     end
   end
 
+  rescue_from 'User::Error' do |exception|
+    flash[:error] = exception.message
+    redirect_to users_url
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
