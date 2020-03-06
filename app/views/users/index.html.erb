@@ -1,54 +1,6 @@
 <%= render 'shared/page_title', title: "Users" %>
 
-<%# check for cart items %>
 <% content_for :main_heading_action_button do %>
-  <%
-=begin
-%>
-
-<%= render "shared/button", text: "Empty Cart", link: @cart, style_class: 'Polaris-Button--destructive', method: :delete %>
-
-<%
-=end
-%>
   <%= render "shared/button", text: "Add User", link: new_user_path, style_class: 'Polaris-Button--primary'%>
 <% end %>
 <%= render 'table', title: "Users" %>
-
-
-<%
-=begin
-%>
-
-<p id="notice"><%= notice %></p>
-
-<h1>Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
-
-
-<%
-=end
-%>
