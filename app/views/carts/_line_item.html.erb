@@ -5,9 +5,9 @@
 <tr class="Polaris-DataTable__TableRow">
   <th class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--firstColumn" scope="row"><%= image_tag(product.image_url, width: '75') %></th>
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell"><%= link_to product.title, product  %></td>
-  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= number_to_currency(product.price, unit: "€") %></td>
+  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= number_to_currency(product.price) %></td>
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= line_item.quantity %></td>
-  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= number_to_currency(line_item.total_cost_line_item, unit: "€") %></td>
+  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric"><%= number_to_currency(line_item.total_cost_line_item) %></td>
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric">
     <div class="icon-delete">
       <% markup = render "shared/icon", type: :delete %>

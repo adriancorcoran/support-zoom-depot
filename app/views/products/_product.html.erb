@@ -8,7 +8,7 @@
         <div class="product-card__image">
           <%= image_tag(product.image_url) %>
           <p>&nbsp;</p>
-          <p class="product-card__price"><%= number_to_currency(product.price, unit: "€") %></p>
+          <p class="product-card__price"><%= number_to_currency(product.price) %></p>
           <p>&nbsp;</p>
           <h2 class="Polaris-Heading"><%= product.title %></h2>
         </div>

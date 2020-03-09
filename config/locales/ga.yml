@@ -30,6 +30,15 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ga:
+  number:
+    currency:
+      format:
+        unit: "£"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
+
   common_words:
     back: "Ar ais"
     error: "Earráid"
