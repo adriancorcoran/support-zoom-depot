@@ -64,3 +64,6 @@ gem 'rubocop', require: false
 
 # add letter opener
 gem 'letter_opener', group: :development
+
+# translation gem
+gem 'i18n-js'

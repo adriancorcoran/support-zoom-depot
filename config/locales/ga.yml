@@ -143,3 +143,27 @@ ga:
       user_name: "Ainm an Úsáideora"
       password: "Pasfhocal"
       submit: "Logáil isteach"
+
+  orders:
+    new:
+      title: "Cuir isteach do Shonraí le do thoil"
+    form:
+      error_text: "chuir sé cosc ​​ar an ordú seo a shábháil"
+      name: "Ainm"
+      address: "Seoladh"
+      email: "Ríomhphost"
+      submit: "Ordú Áit"
+      pay_type: "Cineál Pá"
+      pay_type_prompt: "Roghnaigh modh íocaíochta"
+      pay_types:
+        check: "Seic"
+        credit_card: "Cárta Creidmheasa"
+        purchase_order: "Ordú ceannaigh"
+        check_pay_type:
+          routing_number: "Ródú #"
+          account_number: "Cuntas #"
+        credit_card_pay_type:
+          card_number: "CC #"
+          expiry: "Dul in éag"
+        purchase_order_pay_type:
+          purchase_order_number: "OC #"

@@ -137,3 +137,27 @@ en:
       user_name: "User Name"
       password: "Password"
       submit: "Login"
+
+  orders:
+    new:
+      title: "Please Enter Your Details"
+    form:
+      error_text: "prohibited this order from being saved"
+      name: "Name"
+      address: "Address"
+      email: "Email"
+      submit: "Place Order"
+      pay_type: "Pay Type"
+      pay_type_prompt: "Select a payment method"
+      pay_types:
+        check: "Check"
+        credit_card: "Credit Card"
+        purchase_order: "Purchase Order"
+        check_pay_type:
+          routing_number: "Routing #"
+          account_number: "Account #"
+        credit_card_pay_type:
+          card_number: "CC #"
+          expiry: "Expiry"
+        purchase_order_pay_type:
+          purchase_order_number: "PO #"
