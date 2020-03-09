@@ -1,8 +1,8 @@
 <% content_for :main_heading_action_button do %>
-  <%= render "shared/button", text: "New Product", link: new_product_path, style_class: 'Polaris-Button--primary' %>
+  <%= render "shared/button", text: t('.new_product'), link: new_product_path, style_class: 'Polaris-Button--primary' %>
 <% end %>
 
-<%= render 'shared/page_title', title: 'Products' %>
+<%= render 'shared/page_title', title: t('.title') %>
 
 <% cache @products do %>
   <%= render partial: "product", collection: @products, locals: { manage: true } %>

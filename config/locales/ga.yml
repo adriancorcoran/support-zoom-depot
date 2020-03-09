@@ -30,9 +30,107 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ga:
+  common_words:
+    back: "Ar ais"
+    error: "Earráid"
+    are_you_sure: "An bhfuil tú cinnte?"
+
   layouts:
+    application:
+      title: "An Iosta Leabhar"
     top_bar:
       title_html: "An Iosta <span>Leabhar</span>"
     navigation_primary:
       catalogue: "An Chatalóg"
       cart: "Mo Charta"
+    navigation_admin:
+      products: "Táirgí a Bhainistiú"
+      orders: "Bainistigh Orduithe"
+      users: "Bainistigh Úsáideoirí"
+    footer:
+      contact_start: "Le haghaidh tuilleadh eolais déan teagmháil le"
+      contact_person: " @adrian"
+      contact_end: " ar Slack :)"
+
+  carts:
+    quick_view:
+      title: "Cart Amharc Tapa"
+      no_items: "Níl aon míreanna agat i do chairt"
+    quick_view_line_item:
+      total: "Iomlán"
+    show:
+      title: "Mo Charta"
+      empty_cart: "Cart Folamh"
+      checkout: "Seiceáil Amach"
+      no_items: "Níl aon míreanna agat i do chairt"
+      time_to_shop: "Am chun siopadóireacht a dhéanamh?"
+    table:
+      product: "Táirge"
+      title: "Teideal"
+      unit_price: "Praghas Aonaid"
+      quantity: "Cainníocht"
+      subtotal: "Fo-iomlán"
+      totals: "Iomláin"
+
+  store:
+    index:
+      title: "An Chatalóg"
+
+  products:
+    index:
+      title: "Táirgí"
+      new_product: "Táirge Nua"
+
+    edit:
+      title: "Táirge Eagarthóireachta"
+
+    product_manage:
+      show: "Amharc"
+      edit: "Athrú"
+      who_bought: "Cheannaigh?"
+      delete: "Scrios"
+
+    product_public:
+      add_to_cart: "Cuir sa Chairt"
+
+    form:
+      error_text: "cosc ar an táirge seo a shábháil:"
+      title: "Teideal"
+      description: "Cur síos"
+      image_url: "Íomha Url"
+      price: "Praghas"
+      submit: "Nuashonraigh"
+      submit_update: "Nuashonraigh an Táirge"
+      submit_new: "Cuir Táirge leis"
+
+  users:
+    index:
+      title: "Úsáideoirí"
+      add_user: "Cuir Úsáideoir leis"
+
+    table:
+      user_name: "Ainm an Úsáideora"
+      last_updated: "Nuashonraithe Deiridh"
+
+    user:
+      time_ago: "ó shin"
+
+      edit:
+      edit_user: "Cuir úsáideoir in eagar"
+
+    form:
+      error_text: "chuir sé cosc ​​ar an úsáideoir seo a shábháil:"
+      user_name: "Ainm an Úsáideora"
+      password: "Pasfhocal"
+      confirm: "Deimhnigh"
+      submit: "Nuashonraigh Úsáideoir"
+      submit_update: "Nuashonraigh Úsáideoir"
+      submit_new: "Cuir Úsáideoir leis"
+
+  sessions:
+    new:
+      title: "Logáil isteach"
+    form:
+      user_name: "Ainm an Úsáideora"
+      password: "Pasfhocal"
+      submit: "Logáil isteach"

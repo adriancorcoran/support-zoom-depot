@@ -1,6 +1,6 @@
-<%= render 'shared/page_title', title: "Users" %>
+<%= render 'shared/page_title', title: t('.title') %>
 
 <% content_for :main_heading_action_button do %>
-  <%= render "shared/button", text: "Add User", link: new_user_path, style_class: 'Polaris-Button--primary'%>
+  <%= render "shared/button", text: t('.add_user'), link: new_user_path, style_class: 'Polaris-Button--primary'%>
 <% end %>
-<%= render 'table', title: "Users" %>
+<%= render 'table', title: t('.title') %>

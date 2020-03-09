@@ -13,7 +13,7 @@
 <div class="cart-quick-view__total Polaris-Navigation__ListItem">
   <p class="Polaris-Navigation__Item">          
     <span>&nbsp</span>
-    <span>Total</span>
+    <span><%= t('.total') %></span>
     <span><%= number_to_currency(@cart.total_cost_items, unit: "€") %></span>
   </p>
 </div>

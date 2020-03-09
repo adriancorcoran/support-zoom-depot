@@ -52,6 +52,6 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
 
   test "index should show the users cart" do
     get my_cart_url
-    assert_select '.Polaris-Header-Title h1', 'Your Cart'
+    assert_select '.Polaris-Header-Title h1', 'My Cart'
   end
 end

@@ -2,7 +2,7 @@
 
 <tr class="Polaris-DataTable__TableRow">
   <th class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--firstColumn" scope="row"><%= user.name %></th>
-  <th class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--firstColumn"><%= time_ago_in_words(user.updated_at) %> ago</th>
+  <th class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--firstColumn"><%= time_ago_in_words(user.updated_at) %> <%= t('.time_ago') %></th>
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric">
     <div class="icon-edit">
       <% markup = render "shared/icon", type: :edit %>
@@ -12,7 +12,7 @@
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric">
     <div class="icon-delete">
       <% markup = render "shared/icon", type: :delete %>
-      <%= link_to markup, user_path(user.id), data: { method: 'delete', confirm: 'Are you sure?' }%>
+      <%= link_to markup, user_path(user.id), data: { method: 'delete', confirm: t('common_words.are_you_sure') }%>
     </div>
   </td>
 </tr>

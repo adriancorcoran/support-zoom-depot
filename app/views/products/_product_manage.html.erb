@@ -1,8 +1,8 @@
 <%# product manage buttons %>
 
 <div class="Polaris-ButtonGroup">
-  <%= render "shared/button", text: "Show", link: product, style_class: 'Polaris-Button' %>
-  <%= render "shared/button", text: "Edit", link: edit_product_path(product), style_class: 'Polaris-Button' %>
-  <%= render "shared/button", text: "Who bought?", link: who_bought_product_path(product, :format => :json), style_class: 'Polaris-Button' %>
-  <%= render "shared/button", text: "Delete", link: product, style_class: 'Polaris-Button--destructive', method: :delete %>
+  <%= render "shared/button", text: t('.show'), link: product, style_class: 'Polaris-Button' %>
+  <%= render "shared/button", text: t('.edit'), link: edit_product_path(product), style_class: 'Polaris-Button' %>
+  <%= render "shared/button", text: t('.who_bought'), link: who_bought_product_path(product, :format => :json), style_class: 'Polaris-Button' %>
+  <%= render "shared/button", text: t('.delete'), link: product, style_class: 'Polaris-Button--destructive', method: :delete %>
 </div>
