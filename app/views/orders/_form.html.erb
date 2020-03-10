@@ -1,11 +1,11 @@
 <%= form_with(model: order, local: true) do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, t('common_words.error')) %> <%= t('.error_text') %></h2>
+      <h2><%=raw t('errors.template.header', count: @order.errors.count, model: t('activerecord.models.order')) %>.</h2>
 
       <ul>
         <% order.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li><%= raw(message) %></li>
         <% end %>
       </ul>
     </div>
@@ -26,20 +26,8 @@
     <%= form.email_field :email, id: :order_email, size: 40 %>
   </div>
 
+  <%# replaced with React component %>
   <div id="pay-type-component"></div>
-
-<%
-=begin
-%>
-
-  <div class="field">
-    <%= form.label :pay_type %>
-    <%= form.select :pay_type, Order.pay_types.keys, id: :order_pay_type, prompt: 'Select a payment method' %>
-  </div>
-
-<%
-=end
-%>
 
   <div class="actions">
     <%= form.submit t('.submit') %>

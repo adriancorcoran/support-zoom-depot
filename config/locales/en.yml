@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  messages:
+    thanks_order: "Thank you for your order"
+
   number:
     currency:
       format:

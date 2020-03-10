@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ga:
+  messages:
+    thanks_order: "Go raibh maith agat as d'ordú"
+
   number:
     currency:
       format:
@@ -38,6 +41,40 @@ ga:
         separator: "."
         delimiter: ","
         format: "%u%n"
+
+  activerecord:
+    errors:
+      messages:
+        inclusion: "nach bhfuil ar an liosta"
+        blank: "ní féidir a bheith folamh"
+        not_a_number: "nach uimhir é"
+        confirmation: "ní mheaitseálann"
+    models:
+      product: "táirge"
+      order: "ordú"
+      user: "úsáideoir"
+    attributes:
+      product:
+        title: "Teideal"
+        description: "Cur síos"
+        image_url: "Íomha Url"
+        price: "Praghas"
+      order:
+        name: "Ainm"
+        address: "Seoladh"
+        email: "Ríomhphost"
+        pay_type: "Cineál Pá"
+      user:
+        name: "Ainm an Úsáideora"
+        password: "Pasfhocal"
+        confirm: "Deimhnigh"
+
+  errors:
+    template:
+      body: "Tá fadhbanna leis na réimsí seo a leanas:"
+      header:
+        one: "1 chuir earráid cosc ​​ar an %{model} seo a shábháil"
+        other: "%{count} chuir earráidí cosc ​​ar an %{model} seo a shábháil"
 
   common_words:
     back: "Ar ais"
