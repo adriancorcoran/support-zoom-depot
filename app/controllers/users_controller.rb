@@ -30,11 +30,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:notice] = "User #{@user.name} was successfully created."
+        flash[:notice] = I18n.t('messages.user.created', user_name: @user.name)
         format.html { redirect_to users_url }
         format.json { render :show, status: :created, location: @user }
       else
-        flash[:error] = "There was an issue creating the user, please try again."
+        flash[:error] = I18n.t('messages.user.cannot_create')
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

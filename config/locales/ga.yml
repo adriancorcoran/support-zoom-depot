@@ -39,6 +39,7 @@ ga:
       created: "Cruthaíodh an táirge go rathúil"
       updated: "Nuashonraíodh an táirge go rathúil"
       destroyed: "Scriosadh an táirge go rathúil"
+      not_destroyed: "Níorbh fhéidir an táirge a scriosadh, tá sé i láthair i gcart nó in ordú!"
     cart:
       invalid_access: "Ba chairt neamhbhailí a bhí á lorg agat, dána!"
     order:
@@ -46,10 +47,33 @@ ga:
       updated: "Nuashonraíodh an t-ordú go rathúil"
       empty_cart: "Tá do chairt folamh, déan roinnt siopadóireachta!"
     user:
+      created: "Cruthaíodh Úsáideoir %{user_name} go rathúil"
+      cannot_create: "Bhí saincheist ag cruthú an úsáideora, bain triail as arís"
       updated: "Rinneadh nuashonrú rathúil ar %{user_name} úsáideora"
       cannot_edit: "Bhí saincheist á cur in eagar ag an úsáideoir, bain triail as arís"
       removed: "D'éirigh leis an úsáideoir a bhaint"
-  messages:
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "leath nóiméad"
+      less_than_x_seconds:
+        one: "níos lú ná 1 soicind"
+        other: "níos lú ná %{count} soicind"
+      less_than_x_minutes:
+        one: "níos lú ná 1 nóiméad"
+        other: "níos lú ná %{count} nóiméad"
+      x_seconds:
+        one: "1 soicind"
+        other: "%{count} soicind"
+      x_minutes:
+        one: "1 nóiméad"
+        other: "%{count} nóiméad"
+      x_days:
+        one: "1 lá"
+        other: "%{count} lá"
+      x_months:
+        one: "1 mhí"
+        other: "%{count} mhí"
 
   number:
     currency:
@@ -222,3 +246,9 @@ ga:
           expiry: "Dul in éag"
         purchase_order_pay_type:
           purchase_order_number: "OC #"
+
+  order_mailer:
+    received:
+      subject: "Fuair ​​muid d'ordú!"
+    shipped:
+      subject: "Tá d'ordú ar an mbealach!"

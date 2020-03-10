@@ -9,7 +9,7 @@ class OrderMailer < ApplicationMailer
   #
   def received(order)
     @order = order
-    @subject = "We got your order!"
+    @subject = I18n.t('order_mailer.received.subject')
     mail(to: order.email, subject: @subject)
   end
 
