@@ -20,6 +20,9 @@ module SupportZoomDepot
     # don't log sensitive info
     config.filter_parameters += [:credit_card_number, :expiration_date, :routing_number, :account_number, :po_number]
 
+    # pass translations to js
+    config.middleware.use(I18n::JS::Middleware)
+
     # add all .yml files to translation array
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}')]
     # set default translation

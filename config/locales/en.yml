@@ -30,9 +30,134 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  number:
+    currency:
+      format:
+        unit: "€"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
+
+  common_words:
+    back: "Back"
+    error: "Error"
+    are_you_sure: "Are you sure?"
+
   layouts:
+    application:
+      title: "The Book Depot"
     top_bar:
       title_html: "The <span>Book</span> Depot"
     navigation_primary:
       catalogue: "The Catalogue"
       cart: "My Cart"
+    navigation_admin:
+      products: "Manage Products"
+      orders: "Manage Orders"
+      users: "Manage Users"
+    footer:
+      contact_start: "For more information contact"
+      contact_person: " @adrian"
+      contact_end: " on Slack :)"
+
+  carts:
+    quick_view:
+      title: "Cart Quick View"
+      no_items: "You have no items in your cart"
+    quick_view_line_item:
+      total: "Total"
+    show:
+      title: "My Cart"
+      empty_cart: "Empty Cart"
+      checkout: "Checkout"
+      no_items: "You have no items in your cart"
+      time_to_shop: "Time to shop?"
+    table:
+      product: "Product"
+      title: "Title"
+      unit_price: "Unit Price"
+      quantity: "Quantity"
+      subtotal: "Subtotal"
+      totals: "Totals"
+
+  store:
+    index:
+      title: "The Catalogue"
+
+  products:
+    index:
+      title: "Products"
+      new_product: "New Product"
+
+    edit:
+      title: "Editing Product"
+
+    product_manage:
+      show: "Show"
+      edit: "Edit"
+      who_bought: "Who Bought?"
+      delete: "Delete"
+
+    product_public:
+      add_to_cart: "Add to Cart"
+
+    form:
+      error_text: "prohibited this product from being saved:"
+      title: "Title"
+      description: "Description"
+      image_url: "Image Url"
+      price: "Price"
+      submit_update: "Update Product"
+      submit_new: "Add Product"
+
+  users:
+    index:
+      title: "Users"
+      add_user: "Add User"
+    table:
+      user_name: "User Name"
+      last_updated: "Last Updated"
+    user:
+      time_ago: "ago"
+    edit:
+      edit_user: "Edit a user"
+    form:
+      error_text: "prohibited this user from being saved:"
+      user_name: "User Name"
+      password: "Password"
+      confirm: "Confirm"
+      submit_update: "Update User"
+      submit_new: "Add User"
+
+  sessions:
+    new:
+      title: "Login"
+    form:
+      user_name: "User Name"
+      password: "Password"
+      submit: "Login"
+
+  orders:
+    new:
+      title: "Please Enter Your Details"
+    form:
+      error_text: "prohibited this order from being saved"
+      name: "Name"
+      address: "Address"
+      email: "Email"
+      submit: "Place Order"
+      pay_type: "Pay Type"
+      pay_type_prompt: "Select a payment method"
+      pay_types:
+        check: "Check"
+        credit_card: "Credit Card"
+        purchase_order: "Purchase Order"
+        check_pay_type:
+          routing_number: "Routing #"
+          account_number: "Account #"
+        credit_card_pay_type:
+          card_number: "CC #"
+          expiry: "Expiry"
+        purchase_order_pay_type:
+          purchase_order_number: "PO #"

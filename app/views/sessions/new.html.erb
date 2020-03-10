@@ -1,7 +1,7 @@
 <% content_for :main_heading_action_button do %>
-  <%= render "shared/button", text: "Back", link: store_index_path, style_class: 'Polaris-Button--primary' %>
+  <%= render "shared/button", text: t('common_words.back'), link: store_index_path, style_class: 'Polaris-Button--primary' %>
 <% end %>
 
-<%= render 'shared/page_title', title: "Login" %>
+<%= render 'shared/page_title', title: t('.title') %>
 
 <%= render "session_form" %>

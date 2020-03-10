@@ -5,7 +5,7 @@
     <p class="Polaris-Navigation__Item<% if @current_item == line_item %> line-item-highlight<% end %>">
       <span><%= line_item.quantity %> x</span>
       <span><%= truncate(line_item.product.title, length: 20) %></span>
-      <span><%= number_to_currency(line_item.total_cost_line_item, unit: "€") %></span>
+      <span><%= number_to_currency(line_item.total_cost_line_item) %></span>
     </p>
   </div>
 <% end %>
@@ -13,7 +13,7 @@
 <div class="cart-quick-view__total Polaris-Navigation__ListItem">
   <p class="Polaris-Navigation__Item">          
     <span>&nbsp</span>
-    <span>Total</span>
-    <span><%= number_to_currency(@cart.total_cost_items, unit: "€") %></span>
+    <span><%= t('.total') %></span>
+    <span><%= number_to_currency(@cart.total_cost_items) %></span>
   </p>
 </div>

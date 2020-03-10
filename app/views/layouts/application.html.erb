@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SupportZoomDepot</title>
+    <title><%= t('.title') %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'https://unpkg.com/@shopify/polaris@4.13.1/styles.min.css' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript">
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+    </script>
   </head>
 
   <body>

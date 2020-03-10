@@ -6,7 +6,7 @@
       <%= render "shared/icon", type: :products %>
     </div>
     
-    <%= link_to "Manage Products", products_path, class:
+    <%= link_to t('.products'), products_path, class:
     "Polaris-Navigation__Text" %>
   </button>
 </li>
@@ -16,7 +16,7 @@
     <div class="Polaris-Navigation__Icon">
       <%= render "shared/icon", type: :orders %>
     </div>
-    <%= link_to "Manage Orders", orders_path, class: "Polaris-Navigation__Text"
+    <%= link_to t('.orders'), orders_path, class: "Polaris-Navigation__Text"
     %>
   </button>
 </li>
@@ -26,6 +26,6 @@
     <div class="Polaris-Navigation__Icon">
       <%= render "shared/icon", type: :users %>
     </div>
-    <%= link_to "Manage Users", users_path, class: "Polaris-Navigation__Text" %>
+    <%= link_to t('.users'), users_path, class: "Polaris-Navigation__Text" %>
   </button>
 </li>

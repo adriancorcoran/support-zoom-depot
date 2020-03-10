@@ -73,4 +73,8 @@ module ApplicationHelper
       render(record)
     end
   end
+
+  def get_form_submit_button_label_text(action_name)
+    action_name == 'new' ? '.submit_new' : '.submit_update'
+  end
 end
