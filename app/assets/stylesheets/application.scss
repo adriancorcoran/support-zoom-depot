@@ -35,15 +35,23 @@ $custom-color-grey-medium: #666;
 
 $form-padding: 0.5em;
 
+// general rules
+
+body {
+  a {
+    &:visited,
+    &:hover {
+      color: inherit;
+      background-color: inherit;
+    }
+  }
+}
+
 // top bar
 
 .Polaris-TopBar__LogoLink {
   text-decoration: none;
   width: 200px;
-
-  &:hover {
-    background-color: inherit;
-  }
 
   .Polaris-TopBar__Logo {
     font-size: 1.4em;
@@ -57,16 +65,22 @@ $form-padding: 0.5em;
   }
 }
 
+#language-switch {
+  font-size: 1em;
+  margin-right: 1em;
+  #language-switch__flags {
+    text-align: right;
+    padding-top: 5px;
+    a {
+      padding: 5px 2px;
+    }
+  }
+}
+
 // navigation
 
 .Polaris-Navigation__Text {
   text-decoration: none;
-
-  &:hover,
-  &:visited {
-    color: inherit;
-    background-color: inherit;
-  }
 }
 
 // main content area
@@ -104,10 +118,6 @@ $form-padding: 0.5em;
     padding-left: 0.4em;
     padding-right: 0.4em;
     text-decoration: none;
-
-    &:hover {
-      background-color: inherit;
-    }
   }
 }
 
@@ -168,11 +178,6 @@ $form-padding: 0.5em;
   a {
     text-decoration: none;
     color: $color-teal;
-
-    &:hover {
-      color: inherit;
-      background-color: inherit;
-    }
   }
 }
 
@@ -226,13 +231,6 @@ $form-padding: 0.5em;
 }
 
 // flash banners
-
-.Polaris-Banner__Content {
-  a:hover {
-    color: inherit;
-    background-color: inherit;
-  }
-}
 
 // icons
 

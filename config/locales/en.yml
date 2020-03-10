@@ -30,6 +30,29 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  messages:
+    session:
+      please_login: "Please log in"
+      invalid_login: "Invalid username / password combination"
+      logged_out: "You are now logged out"
+    product:
+      created: "Product was successfully created"
+      updated: "Product was successfully updated"
+      destroyed: "Product was successfully deleted"
+      not_destroyed: "Product could not be deleted, it is present in a cart or order!"
+    cart:
+      invalid_access: "That was an invalid cart you were looking for, naughty!"
+    order:
+      thanks: "Thank you for your order"
+      updated: "Order was successfully updated"
+      empty_cart: "Your cart is empty, do some shopping!"
+    user:
+      created: "User %{user_name} was successfully created"
+      cannot_create: "There was an issue creating the user, please try again"
+      updated: "User %{user_name} was successfully updated"
+      cannot_edit: "There was an issue editing the user, please try again"
+      removed: "User was successfully removed"
+
   number:
     currency:
       format:
@@ -161,3 +184,9 @@ en:
           expiry: "Expiry"
         purchase_order_pay_type:
           purchase_order_number: "PO #"
+
+  order_mailer:
+    received:
+      subject: "We got your order!"
+    shipped:
+      subject: "Your order is on the way!"

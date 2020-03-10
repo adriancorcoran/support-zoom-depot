@@ -33,7 +33,7 @@ class CartsController < ApplicationController
     @cart = Cart.new(cart_params)
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
+        format.html { redirect_to cart_url(@cart, locale: I18n.locale), notice: I18n.t('messages.cart.created') }
         format.json { render :show, status: :created, location: @cart }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
+        format.html { redirect_to cart_url(@cart, locale: I18n.locale), notice: I18n.t('messages.cart.updated') }
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class CartsController < ApplicationController
     respond_to do |format|
       format.html do
         # flash[:notice] = 'Your cart was emptied.'
-        redirect_to my_cart_url
+        redirect_to my_cart_url(locale: I18n.locale)
       end
       format.json { head :no_content }
     end
@@ -85,7 +85,7 @@ class CartsController < ApplicationController
   # invalid cart id supplied
   def invalid_cart
     logger.error("Attempt to access an invalid cart: #{params[:id]}")
-    flash[:error] = 'That was an invalid cart you were looking for, naughty!'
+    flash[:error] = I18n.t('messages.cart.invalid_access')
     redirect_to(store_index_url)
   end
 end

@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: I18n.t('messages.product.created') }
         format.json { render :show, status: :created, location: @product }
       else
         puts @product.errors.full_messages
@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to @product, notice: I18n.t('messages.product.updated') }
         format.json { render :show, status: :ok, location: @product }
 
         # broadcast update info
@@ -62,10 +62,17 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-      format.json { head :no_content }
+      if @product.destroy
+        format.html { redirect_to products_url, notice: I18n.t('messages.product.destroyed') }
+        format.json { head :no_content }
+      else
+        format.html do
+          flash[:error] = I18n.t('messages.product.not_destroyed')
+          redirect_to @product
+        end
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -51,7 +51,10 @@ class LineItemsController < ApplicationController
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Product updated!' }
+        format.html do
+          redirect_to @line_item,
+          notice: I18n.t('messages.product.updated')
+        end
         format.json { render :show, status: :ok, location: @line_item }
       else
         format.html { render :edit }

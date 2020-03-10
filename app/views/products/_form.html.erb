@@ -1,11 +1,11 @@
 <%= form_with(model: product, local: true) do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, t('common_words.error')) %> <%= t('.error_text') %></h2>
-
+      <h2><%=raw t('errors.template.header', count: @product.errors.count, model: t('activerecord.models.product')) %>.</h2>
+      
       <ul>
         <% product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li><%= raw(message) %></li>
         <% end %>
       </ul>
     </div>
