@@ -236,7 +236,7 @@ ga:
       pay_type_prompt: "Roghnaigh modh íocaíochta"
       pay_types:
         check: "Seic"
-        credit_card: "Cárta Creidmheasa"
+        credit_card: "Cárta creidmheasa"
         purchase_order: "Ordú ceannaigh"
         check_pay_type:
           routing_number: "Ródú #"

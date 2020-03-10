@@ -21,7 +21,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
       post carts_url, params: { cart: {} }
     end
 
-    assert_redirected_to cart_url(Cart.last)
+    assert_redirected_to cart_url(Cart.last, locale: 'en')
   end
 
   test "should show cart" do
@@ -36,7 +36,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update cart" do
     patch cart_url(@cart), params: { cart: {} }
-    assert_redirected_to cart_url(@cart)
+    assert_redirected_to cart_url(@cart, locale: 'en')
   end
 
   test "should destroy cart" do
@@ -47,7 +47,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
       delete cart_url(cart)
     end
 
-    assert_redirected_to my_cart_url
+    assert_redirected_to my_cart_url(locale: 'en')
   end
 
   test "index should show the users cart" do

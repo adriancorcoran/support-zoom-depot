@@ -55,7 +55,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       delete product_url(products(:two))
     end
 
-    assert_redirected_to products_url
+    assert_redirected_to product_url(products(:two))
   end
 
   test "should destroy product" do

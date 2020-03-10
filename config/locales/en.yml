@@ -174,8 +174,8 @@ en:
       pay_type_prompt: "Select a payment method"
       pay_types:
         check: "Check"
-        credit_card: "Credit Card"
-        purchase_order: "Purchase Order"
+        credit_card: "Credit card"
+        purchase_order: "Purchase order"
         check_pay_type:
           routing_number: "Routing #"
           account_number: "Account #"
