@@ -17,16 +17,16 @@
     <div id="language-switch">
       <div class="Polaris-TopBar-Menu__ActivatorWrapper">
         <div class="Polaris-MessageIndicator__MessageIndicatorWrapper">
-          <p class="Polaris-TopBar-UserMenu__Name">Switch Language:</p>
+          <p class="Polaris-TopBar-UserMenu__Name">Switch Language:</p>        
           <div id="language-switch__flags">
             <% I18n.available_locales.each do |locale| %>
               <%= link_to image_tag("flags/#{locale}.jpg"), url_for( params.clone.permit!.merge(locale: locale, only_path: true )) %>
             <% end %>
           </div>
         </div>
+      </div>        
     </div>
     <%# right menu %>
-    
   </div>
   <%# contents %>
 
