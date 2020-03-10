@@ -31,7 +31,24 @@
 
 en:
   messages:
-    thanks_order: "Thank you for your order"
+    session:
+      please_login: "Please log in"
+      invalid_login: "Invalid username / password combination"
+      logged_out: "You are now logged out"
+    product:
+      created: "Product was successfully created"
+      updated: "Product was successfully updated"
+      destroyed: "Product was successfully destroyed"
+    cart:
+      invalid_access: "That was an invalid cart you were looking for, naughty!"
+    order:
+      thanks: "Thank you for your order"
+      updated: "Order was successfully updated"
+      empty_cart: "Your cart is empty, do some shopping!"
+    user:
+      updated: "User %{user_name} was successfully updated"
+      cannot_edit: "There was an issue editing the user, please try again"
+      removed: "User was successfully removed"
 
   number:
     currency:

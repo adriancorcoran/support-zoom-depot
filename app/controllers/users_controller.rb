@@ -46,11 +46,11 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        flash[:notice] = "User #{@user.name} was successfully updated."
+        flash[:notice] = I18n.t('messages.user.cannot_edit', user_name: @user.name)
         format.html { redirect_to users_url }
         format.json { render :show, status: :ok, location: @user }
       else
-        flash[:error] = "There was an issue editing the user, please try again."
+        flash[:error] = I18n.t('messages.user.cannot_edit')
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully removed.' }
+      format.html { redirect_to users_url, notice: I18n.t('messages.user.removed') }
       format.json { head :no_content }
     end
   end

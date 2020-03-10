@@ -31,7 +31,25 @@
 
 ga:
   messages:
-    thanks_order: "Go raibh maith agat as d'ordú"
+    session:
+      please_login: "Logáil isteach le do thoil"
+      invalid_login: "Teaglaim ainm úsáideora / pasfhocal neamhbhailí"
+      logged_out: "Tá tú logáilte amach anois"
+    product:
+      created: "Cruthaíodh an táirge go rathúil"
+      updated: "Nuashonraíodh an táirge go rathúil"
+      destroyed: "Scriosadh an táirge go rathúil"
+    cart:
+      invalid_access: "Ba chairt neamhbhailí a bhí á lorg agat, dána!"
+    order:
+      thanks: "Go raibh maith agat as d'ordú"
+      updated: "Nuashonraíodh an t-ordú go rathúil"
+      empty_cart: "Tá do chairt folamh, déan roinnt siopadóireachta!"
+    user:
+      updated: "Rinneadh nuashonrú rathúil ar %{user_name} úsáideora"
+      cannot_edit: "Bhí saincheist á cur in eagar ag an úsáideoir, bain triail as arís"
+      removed: "D'éirigh leis an úsáideoir a bhaint"
+  messages:
 
   number:
     currency:

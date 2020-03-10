@@ -37,9 +37,9 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         destroy_cart
-        flash[:notice] = I18n.t('messages.thanks_order')
+        flash[:notice] = I18n.t('messages.order.thanks')
         ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
-        format.html { redirect_to store_index_url(locale: I18n.locale) }
+        format.html { redirect_to store_index_url }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to @order, notice: I18n.t('messages.order.updated') }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, notice: I18n.t('messages.order.destroyed') }
       format.json { head :no_content }
     end
   end
@@ -87,7 +87,7 @@ class OrdersController < ApplicationController
   # check the cart has items
   def ensure_cart_has_items
     if @cart.line_items.empty?
-      flash[:error] = 'Your cart is empty, do some shopping!'
+      flash[:error] = I18n.t('messages.order.empty_cart')
       redirect_to(store_index_url)
     end
   end

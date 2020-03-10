@@ -12,13 +12,13 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to(admin_url)
     else
-      flash[:error] = "Invalid username / password combination"
+      flash[:error] = I18n.t('messages.session.invalid_login')
       redirect_to(login_url)
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to(login_url, notice: "You are now logged out")
+    redirect_to(login_url, notice: I18n.t('messages.session.logged_out'))
   end
 end
