@@ -1,0 +1,15 @@
+current directory: /Users/adriancorcoran/src/github.com/adriancorcoran/support-zoom-depot/vendor/cache/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+/opt/rubies/2.6.3/bin/ruby -I /opt/rubies/2.6.3/lib/ruby/2.6.0 -r ./siteconf20200311-48249-wdhad4.rb extconf.rb
+creating Makefile
+
+current directory: /Users/adriancorcoran/src/github.com/adriancorcoran/support-zoom-depot/vendor/cache/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/adriancorcoran/src/github.com/adriancorcoran/support-zoom-depot/vendor/cache/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/adriancorcoran/src/github.com/adriancorcoran/support-zoom-depot/vendor/cache/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20200311-48249-kpktuu/bootsnap

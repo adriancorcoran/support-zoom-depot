@@ -1,0 +1,45 @@
+containers:
+  ruby-2.4:
+    docker: circleci/ruby:2.4-node
+  ruby-2.5:
+    docker: circleci/ruby:2.5-node
+
+shared:
+  defaults: &defaults
+    timeout: 5m
+    dependencies:
+    - bundler
+    run:
+      - bundle exec rake test
+
+steps:
+- label: 'Ruby style check'
+  timeout: 5m
+  container: ruby-2.5
+  dependencies:
+  - bundler
+  run: bin/rubocop
+
+- label: Ruby 2.4 - Rails 5.1
+  container: ruby-2.4
+  env:
+    BUNDLE_GEMFILE: gemfiles/rails-5-1.gemfile
+  <<: *defaults
+
+- label: Ruby 2.4 - Rails 5.2
+  container: ruby-2.4
+  env:
+    BUNDLE_GEMFILE: gemfiles/rails-5-2.gemfile
+  <<: *defaults
+
+- label: Ruby 2.5 - Rails 5.1
+  container: ruby-2.5
+  env:
+    BUNDLE_GEMFILE: gemfiles/rails-5-1.gemfile
+  <<: *defaults
+
+- label: Ruby 2.5 - Rails 5.2
+  container: ruby-2.5
+  env:
+    BUNDLE_GEMFILE: gemfiles/rails-5-2.gemfile
+  <<: *defaults

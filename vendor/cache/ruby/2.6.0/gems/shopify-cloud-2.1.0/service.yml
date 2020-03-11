@@ -1,0 +1,6 @@
+# https://services.shopify.io/services/shopify-cloud/production
+owners: Shopify/rails
+create_issues: true
+classification: library
+slack_channels:
+  - rails
