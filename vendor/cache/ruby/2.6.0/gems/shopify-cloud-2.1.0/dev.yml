@@ -1,9 +1,0 @@
-name: shopify-cloud
-
-up:
-  - ruby: 2.5.5
-  - bundler
-
-commands:
-  console: bin/console
-  test: bundle exec rake test

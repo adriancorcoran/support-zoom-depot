@@ -1,5 +1,0 @@
-deploy:
-  override:
-    - bundle exec rake build
-    - gem push --key github_registry --host https://rubygems.pkg.github.com/shopify pkg/shopify-cloud-*.gem
-    - bundle exec package_cloud push shopify/gems pkg/shopify-cloud-*.gem

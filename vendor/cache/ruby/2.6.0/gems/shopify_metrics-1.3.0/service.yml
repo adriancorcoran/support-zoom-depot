@@ -1,7 +1,0 @@
-org_line: Production Engineering
-owners: Shopify/operational-excellence
-classification: library
-slack_channels:
-- servicesdb
-v0:
-  classification: ignored
