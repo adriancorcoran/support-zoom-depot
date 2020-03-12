@@ -6,13 +6,13 @@
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric">
     <div class="icon-edit">
       <% markup = render "shared/icon", type: :edit %>
-      <%= link_to markup, edit_user_path(user) %>
+      <%= link_to markup, edit_user_path(user), class: 'link-edit' %>
     </div>
   </td>
   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--verticalAlignTop Polaris-DataTable__Cell--numeric">
     <div class="icon-delete">
       <% markup = render "shared/icon", type: :delete %>
-      <%= link_to markup, user_path(user.id), data: { method: 'delete', confirm: t('common_words.are_you_sure') }%>
+      <%= link_to markup, user_path(user.id), class: 'link-delete', data: { method: 'delete', confirm: t('common_words.are_you_sure') }%>
     </div>
   </td>
 </tr>

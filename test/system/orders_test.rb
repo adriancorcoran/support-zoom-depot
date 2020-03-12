@@ -11,9 +11,11 @@ class OrdersTest < ApplicationSystemTestCase
       address: 'Gillstown, Kilglass, Strokestown, Co. Roscommon F42F972',
       email: 'adriancorcoran36@gmail.com',
     }
+    @user = users(:one)
   end
 
   test "visiting the index" do
+    login_as(@user)
     visit orders_url
     # assert_selector "h1", text: "Orders"
     # find the start of the JSON output

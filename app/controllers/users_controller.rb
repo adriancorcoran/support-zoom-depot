@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        flash[:notice] = I18n.t('messages.user.cannot_edit', user_name: @user.name)
+        flash[:notice] = I18n.t('messages.user.updated', user_name: @user.name)
         format.html { redirect_to users_url }
         format.json { render :show, status: :ok, location: @user }
       else
