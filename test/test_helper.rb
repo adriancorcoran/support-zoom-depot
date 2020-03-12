@@ -15,41 +15,33 @@ module ActiveSupport
   end
 end
 
-module AuthenticationHelper
-  def login_as(user)
-    if respond_to?(:visit)
-      login_with_visit(user)
-    else
-      post(login_url, params: { name: user.name, password: 'secret' })
-    end
-  end
-
-  def logout
-    delete(logout_url)
-  end
-
-  def setup
-    login_as(users(:one))
-  end
-
-  private
-
-  def login_with_visit(user)
-    visit(login_url)
-    fill_in(:name, with: user.name)
-    fill_in(:password, with: 'secret')
-    click_on('Login')
-  end
-end
-
 module ActionDispatch
   class IntegrationTest
-    include AuthenticationHelper
+    def setup
+      login_as(users(:one))
+    end
+
+    def login_as(user)
+      post(login_url, params: { name: user.name, password: 'secret' })
+    end
+
+    def logout
+      delete(logout_url)
+    end
   end
 end
 
 module ActionDispatch
   class SystemTestCase
-    include AuthenticationHelper
+    def login_as(user)
+      visit(login_url)
+      fill_in(:name, with: user.name)
+      fill_in(:password, with: 'secret')
+      click_on('Login')
+    end
+
+    def logout
+      visit(logout_url)
+    end
   end
 end

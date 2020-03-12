@@ -9,14 +9,6 @@ class ProductsTest < ApplicationSystemTestCase
     @new_product.title = 'AAAA First Product Title'
   end
 
-  def login
-    visit(logout_url)
-    visit(login_url)
-    fill_in('name', with: @user[:name])
-    fill_in('password', with: 'secret')
-    click_on("Login")
-  end
-
   def create_product
     visit(products_url)
     click_on("New Product")
@@ -28,14 +20,14 @@ class ProductsTest < ApplicationSystemTestCase
   end
 
   test "visiting the products page" do
-    login
+    login_as(@user)
     visit products_url
     assert_selector "h1", text: "Products"
   end
 
   test "creating a Product" do
     current_num_products = Product.all.size
-    login
+    login_as(@user)
     create_product
     assert_text "Product was successfully created"
     assert_equal current_num_products + 1, Product.all.size
@@ -43,7 +35,7 @@ class ProductsTest < ApplicationSystemTestCase
 
   test "cannot create a Product" do
     current_num_products = Product.all.size
-    login
+    login_as(@user)
     visit(products_url)
     click_on("New Product")
     click_on("Add Product")
@@ -52,7 +44,7 @@ class ProductsTest < ApplicationSystemTestCase
   end
 
   test "updating a Product" do
-    login
+    login_as(@user)
     visit products_url
     click_on "Edit", match: :first
     fill_in "Title", with: @product.title + ' ' + @product.title
@@ -62,7 +54,7 @@ class ProductsTest < ApplicationSystemTestCase
   end
 
   test "cannot edit a Product" do
-    login
+    login_as(@user)
     visit products_url
     click_on "Edit", match: :first
     fill_in "Title", with: ''
@@ -72,7 +64,7 @@ class ProductsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Product" do
-    login
+    login_as(@user)
     create_product
     visit products_url
     page.accept_confirm do
@@ -83,7 +75,7 @@ class ProductsTest < ApplicationSystemTestCase
   end
 
   test "cannot destroy a Product" do
-    login
+    login_as(@user)
     visit products_url
     page.accept_confirm do
       click_on "Delete", match: :first
@@ -93,7 +85,7 @@ class ProductsTest < ApplicationSystemTestCase
   end
 
   test "viewing product ordered in" do
-    login
+    login_as(@user)
     visit products_url
     click_on "Who Bought?", match: :first
     assert_text "Customers who bought"
