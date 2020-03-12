@@ -188,4 +188,43 @@ class OrdersTest < ApplicationSystemTestCase
     select 'Purchase order', from: 'pay_type'
     assert_selector "#order_po_number"
   end
+
+  test "check order by credit card in Irish" do
+    # get current number of orders
+    current_num_orders = Order.all.size
+    # travlel the path
+    visit store_index_url(locale: 'ga')
+    click_on "Cuir sa Chairt", match: :first
+    click_on "Mo Charta", match: :first
+    click_on "Seiceáil Amach"
+    fill_in 'order_name', with: @order_fill_in_details[:name]
+    fill_in 'order_address', with: @order_fill_in_details[:address]
+    fill_in 'order_email', with: @order_fill_in_details[:email]
+    assert_no_selector "#order_credit_card_number"
+    assert_no_selector "#order_expiration_date"
+    select 'Cárta creidmheasa', from: 'pay_type'
+    assert_selector "#order_credit_card_number"
+    assert_selector "#order_expiration_date"
+
+    fill_in "CC #", with: "00001111222233333"
+    fill_in "Dul in éag", with: "13/12"
+    # do background jobs triggered by the passed block
+    perform_enqueued_jobs do
+      click_button "Ordú Áit"
+    end
+    # check order was created
+    orders = Order.all.order(id: :asc)
+    assert_equal current_num_orders + 1, orders.size
+    order = orders.last
+    assert_equal @order_fill_in_details[:name], order.name
+    assert_equal @order_fill_in_details[:address], order.address
+    assert_equal @order_fill_in_details[:email], order.email
+    assert_equal "Credit card", order.pay_type
+    assert_equal 1, order.line_items.size
+    # check emails was sent (in test, this is saved in the ActionMailer::Base.deliveries array)
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal [@order_fill_in_details[:email]], mail.to
+    assert_equal 'Adrian Corcoran <adrian.corcoran@shopify.com>', mail[:from].value
+    assert_equal 'Fuair ​​muid d\'ordú!', mail.subject
+  end
 end
