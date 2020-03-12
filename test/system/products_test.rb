@@ -19,13 +19,13 @@ class ProductsTest < ApplicationSystemTestCase
     click_on("Add Product")
   end
 
-  test "visiting the products page" do
+  test "visiting the index" do
     login_as(@user)
     visit products_url
     assert_selector "h1", text: "Products"
   end
 
-  test "creating a Product" do
+  test "creating a product" do
     current_num_products = Product.all.size
     login_as(@user)
     create_product
@@ -33,7 +33,7 @@ class ProductsTest < ApplicationSystemTestCase
     assert_equal current_num_products + 1, Product.all.size
   end
 
-  test "cannot create a Product" do
+  test "cannot create a product without data" do
     current_num_products = Product.all.size
     login_as(@user)
     visit(products_url)
@@ -43,7 +43,7 @@ class ProductsTest < ApplicationSystemTestCase
     assert_equal current_num_products, Product.all.size
   end
 
-  test "updating a Product" do
+  test "updating a product" do
     login_as(@user)
     visit products_url
     click_on "Edit", match: :first
@@ -53,7 +53,7 @@ class ProductsTest < ApplicationSystemTestCase
     assert_text "Product was successfully updated"
   end
 
-  test "cannot edit a Product" do
+  test "error editing a product with blank field" do
     login_as(@user)
     visit products_url
     click_on "Edit", match: :first
@@ -63,7 +63,7 @@ class ProductsTest < ApplicationSystemTestCase
     assert_text "Title can't be blank"
   end
 
-  test "destroying a Product" do
+  test "delete a product with no line_items" do
     login_as(@user)
     create_product
     visit products_url
@@ -74,7 +74,7 @@ class ProductsTest < ApplicationSystemTestCase
     assert_text "Product was successfully deleted"
   end
 
-  test "cannot destroy a Product" do
+  test "cannot delete a product with line_items" do
     login_as(@user)
     visit products_url
     page.accept_confirm do
